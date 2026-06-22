@@ -1,26 +1,93 @@
 @import "tailwindcss";
 
+/*
+  Design tokens — inspired by the clean, friendly look of react.dev/learn.
+  Light values live in :root, dark overrides live in the prefers-color-scheme block.
+  Everything below references these via @theme inline so Tailwind generates
+  utilities like `bg-surface`, `text-ink`, `border-line`, `text-brand`, etc.
+*/
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --bg: #ffffff;
+  --surface: #f6f7f9;
+  --surface-strong: #eef0f3;
+  --line: #e6e8eb;
+  --ink: #23272f;
+  --ink-muted: #5b6270;
+  --ink-faint: #868e9c;
+  --brand: #087ea4;
+  --brand-strong: #0b5e78;
+  --code-bg: #f6f7f9;
+  --code-ink: #2a2f3a;
+  --shadow: 0 1px 2px rgba(0, 0, 0, 0.04), 0 8px 24px rgba(0, 0, 0, 0.06);
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --bg: #16181d;
+    --surface: #1e2127;
+    --surface-strong: #23272f;
+    --line: #2e333d;
+    --ink: #f1f3f5;
+    --ink-muted: #b4b9c4;
+    --ink-faint: #868e9c;
+    --brand: #58c4dc;
+    --brand-strong: #99e1ee;
+    --code-bg: #1c1f25;
+    --code-ink: #e6e8eb;
+    --shadow: 0 1px 2px rgba(0, 0, 0, 0.4), 0 8px 24px rgba(0, 0, 0, 0.4);
   }
 }
 
+@theme inline {
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-surface-strong: var(--surface-strong);
+  --color-line: var(--line);
+  --color-ink: var(--ink);
+  --color-ink-muted: var(--ink-muted);
+  --color-ink-faint: var(--ink-faint);
+  --color-brand: var(--brand);
+  --color-brand-strong: var(--brand-strong);
+  --color-code-bg: var(--code-bg);
+  --color-code-ink: var(--code-ink);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* Anchored headings should not hide under the sticky top bar */
+:where(h2, h3, h4)[id] {
+  scroll-margin-top: 6rem;
+}
+
+::selection {
+  background: color-mix(in srgb, var(--brand) 22%, transparent);
+}
+
+/* Thin, unobtrusive scrollbars for the sidebar / toc rails */
+.scroll-rail {
+  scrollbar-width: thin;
+  scrollbar-color: var(--line) transparent;
+}
+.scroll-rail::-webkit-scrollbar {
+  width: 8px;
+}
+.scroll-rail::-webkit-scrollbar-thumb {
+  background: var(--line);
+  border-radius: 9999px;
 }
