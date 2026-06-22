@@ -1,0 +1,6 @@
+npx route-intelligence analyze --root . --format mermaid --out ri-output
+npx route-intelligence analyze --root . --format plantuml --out ri-output
+npx route-intelligence analyze --root . --format dot --out ri-output
+npx route-intelligence analyze --root . --format html --out ri-output
+npx route-intelligence analyze --root . --format markdown --out ri-output
+npx route-intelligence analyze --root . --format json --out ri-output
