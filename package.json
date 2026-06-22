@@ -1,27 +1,55 @@
 {
-  "name": "practicer",
+  "name": "route-intelligence",
   "version": "0.1.0",
   "private": true,
-  "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "eslint"
+  "description": "Routing intelligence platform for React applications",
+  "type": "module",
+  "workspaces": [
+    "packages/*",
+    "apps/*",
+    "tooling/*"
+  ],
+  "engines": {
+    "node": ">=22"
   },
-  "dependencies": {
-    "headroom-ai": "^0.22.4",
-    "next": "16.2.9",
-    "react": "19.2.4",
-    "react-dom": "19.2.4"
+  "packageManager": "pnpm@9.15.9",
+  "scripts": {
+    "build": "node scripts/run-workspaces.mjs build",
+    "dev": "node scripts/run-package.mjs @route-intelligence/cli dev",
+    "docs:dev": "next dev",
+    "docs:build": "next build",
+    "docs:start": "next start",
+    "typecheck": "node scripts/run-workspaces.mjs typecheck",
+    "test": "node scripts/run-workspaces.mjs test",
+    "lint": "biome check .",
+    "lint:fix": "biome check --write .",
+    "format": "biome format --write .",
+    "analyze": "node scripts/run-package.mjs @route-intelligence/cli build && node packages/cli/dist/cli.js analyze",
+    "changeset": "changeset",
+    "version-packages": "changeset version",
+    "release": "node scripts/run-workspaces.mjs build && changeset publish",
+    "postinstall": "node scripts/verify-workspaces.mjs"
   },
   "devDependencies": {
-    "@tailwindcss/postcss": "^4",
-    "@types/node": "^20",
-    "@types/react": "^19",
-    "@types/react-dom": "^19",
-    "eslint": "^9",
-    "eslint-config-next": "16.2.9",
-    "tailwindcss": "^4",
-    "typescript": "^5"
+    "@biomejs/biome": "^1.9.4",
+    "@changesets/cli": "^2.31.0",
+    "@route-intelligence/tsconfig": "*",
+    "@tailwindcss/postcss": "^4.3.1",
+    "tailwindcss": "^4.3.1",
+    "typescript": "^5.8.3",
+    "vitest": "^3.2.4"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "clsx": "^2.1.1",
+    "next": "^16.2.9",
+    "react": "^19.2.7",
+    "react-dom": "^19.2.7",
+    "tailwind-merge": "^3.6.0"
+  },
+  "overrides": {
+    "postcss": "^8.5.15",
+    "esbuild": "^0.25.12",
+    "js-yaml": "^4.1.2"
   }
 }
