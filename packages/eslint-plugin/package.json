@@ -1,0 +1,35 @@
+{
+  "name": "eslint-plugin-route-intelligence",
+  "version": "0.1.0",
+  "description": "ESLint plugin for Route Intelligence",
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "files": ["dist"],
+  "scripts": {
+    "build": "tsup src/index.ts --format esm --dts --clean",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@route-intelligence/shared": "*"
+  },
+  "peerDependencies": {
+    "eslint": ">=9"
+  },
+  "devDependencies": {
+    "@route-intelligence/tsconfig": "*",
+    "@types/estree-jsx": "^1.0.5",
+    "@types/node": "^22.15.32",
+    "eslint": "^9.29.0",
+    "tsup": "^8.4.0",
+    "typescript": "^5.8.3"
+  },
+  "license": "MIT",
+  "publishConfig": { "access": "public" }
+}

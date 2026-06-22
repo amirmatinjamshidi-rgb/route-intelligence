@@ -1,0 +1,29 @@
+{
+  "name": "@route-intelligence/playwright",
+  "version": "0.1.0",
+  "description": "Playwright test generation from route graphs",
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "main": "./dist/index.js",
+  "files": ["dist"],
+  "scripts": {
+    "build": "tsup src/index.ts --format esm --dts --clean",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@route-intelligence/shared": "*"
+  },
+  "devDependencies": {
+    "@route-intelligence/tsconfig": "*",
+    "@types/node": "^22.15.32",
+    "tsup": "^8.4.0",
+    "typescript": "^5.8.3"
+  },
+  "license": "MIT",
+  "publishConfig": { "access": "public" }
+}

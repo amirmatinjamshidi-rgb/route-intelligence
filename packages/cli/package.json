@@ -1,0 +1,41 @@
+{
+  "name": "@route-intelligence/cli",
+  "version": "0.1.0",
+  "description": "CLI for Route Intelligence",
+  "type": "module",
+  "bin": {
+    "route-intelligence": "./dist/cli.js",
+    "ri": "./dist/cli.js"
+  },
+  "exports": {
+    ".": {
+      "types": "./dist/cli.d.ts",
+      "import": "./dist/cli.js"
+    }
+  },
+  "files": ["dist"],
+  "scripts": {
+    "build": "tsup src/cli.ts --format esm --dts --clean",
+    "dev": "tsup src/cli.ts --format esm --dts --watch",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@route-intelligence/core": "*",
+    "@route-intelligence/next": "*",
+    "@route-intelligence/shared": "*",
+    "chalk": "^5.4.1",
+    "commander": "^14.0.0",
+    "execa": "^9.6.0",
+    "ora": "^8.2.0"
+  },
+  "devDependencies": {
+    "@route-intelligence/tsconfig": "*",
+    "@types/node": "^22.15.32",
+    "tsup": "^8.4.0",
+    "typescript": "^5.8.3"
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "license": "MIT"
+}

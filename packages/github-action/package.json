@@ -1,0 +1,30 @@
+{
+  "name": "@route-intelligence/github-action",
+  "version": "0.1.0",
+  "description": "GitHub Action for Route Intelligence PR analysis",
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "main": "./dist/index.js",
+  "files": ["dist", "action.yml"],
+  "scripts": {
+    "build": "tsup src/index.ts --format esm --dts --clean",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@route-intelligence/core": "*",
+    "@route-intelligence/next": "*",
+    "@route-intelligence/shared": "*"
+  },
+  "devDependencies": {
+    "@route-intelligence/tsconfig": "*",
+    "@types/node": "^22.15.32",
+    "tsup": "^8.4.0",
+    "typescript": "^5.8.3"
+  },
+  "license": "MIT"
+}

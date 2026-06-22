@@ -1,0 +1,36 @@
+{
+  "name": "@route-intelligence/visualizer",
+  "version": "0.1.0",
+  "description": "Interactive route graph visualizer",
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "main": "./dist/index.js",
+  "files": ["dist"],
+  "scripts": {
+    "build": "tsup src/index.tsx src/App.tsx --format esm --dts --clean --external react --external react-dom --external @xyflow/react",
+    "dev": "vite",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@route-intelligence/shared": "*",
+    "@xyflow/react": "^12.6.4",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0"
+  },
+  "devDependencies": {
+    "@route-intelligence/tsconfig": "*",
+    "@types/react": "^19.1.8",
+    "@types/react-dom": "^19.1.6",
+    "@vitejs/plugin-react": "^4.5.2",
+    "tsup": "^8.4.0",
+    "typescript": "^5.8.3",
+    "vite": "^6.3.5"
+  },
+  "license": "MIT",
+  "publishConfig": { "access": "public" }
+}
