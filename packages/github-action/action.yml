@@ -1,0 +1,17 @@
+name: Route Intelligence
+description: Analyze routing changes in pull requests
+branding:
+  icon: map
+  color: cyan
+inputs:
+  root:
+    description: Project root directory
+    required: false
+    default: '.'
+  fail-on-error:
+    description: Fail the action if routing errors are found
+    required: false
+    default: 'true'
+runs:
+  using: node20
+  main: dist/index.js
