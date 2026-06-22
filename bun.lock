@@ -9,15 +9,15 @@
         "@changesets/cli": "^2.29.5",
         "@route-intelligence/tsconfig": "*",
         "typescript": "^5.8.3",
-        "vitest": "^3.2.4",
-      },
+        "vitest": "^3.2.4"
+      }
     },
     "packages/cli": {
       "name": "@route-intelligence/cli",
       "version": "0.1.0",
       "bin": {
         "route-intelligence": "./dist/cli.js",
-        "ri": "./dist/cli.js",
+        "ri": "./dist/cli.js"
       },
       "dependencies": {
         "@route-intelligence/core": "*",
@@ -32,7 +32,7 @@
         "@route-intelligence/tsconfig": "*",
         "@types/node": "^22.15.32",
         "tsup": "^8.4.0",
-        "typescript": "^5.8.3",
+        "typescript": "^5.8.3"
       },
     },
     "packages/core": {
