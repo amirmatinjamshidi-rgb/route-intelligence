@@ -23,7 +23,6 @@ function getBunCommand(script) {
 /** @type {Record<string, string>} */
 const commands = {
   npm: `npm run ${script} --workspaces --if-present`,
-  pnpm: `pnpm -r --if-present run ${script}`,
   yarn: isYarnBerry(rootDir)
     ? `yarn workspaces foreach -Apt --if-present run ${script}`
     : `yarn workspaces run ${script}`,

@@ -18,7 +18,6 @@ const pm = detectPackageManager(rootDir);
 /** @type {Record<string, string>} */
 const commands = {
   npm: `npm run ${script} -w ${packageName}`,
-  pnpm: `pnpm --filter ${packageName} run ${script}`,
   yarn: isYarnBerry(rootDir)
     ? `yarn workspace ${packageName} run ${script}`
     : `yarn workspace ${packageName} run ${script}`,
