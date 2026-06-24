@@ -21,7 +21,7 @@
 ## Requirements
 
 - **Node.js 22+**
-- Any of: **npm 9+**, **pnpm 9+**, **Yarn 1 / Berry**, or **Bun 1+**
+- Any of: **npm 9+**, **Yarn 1 / Berry**, or **Bun 1+**
 
 ## Quick Start
 
@@ -33,14 +33,6 @@ Pick your package manager — all root scripts work the same:
 npm install
 npm run build
 npm run analyze
-```
-
-### pnpm
-
-```bash
-pnpm install
-pnpm build
-pnpm analyze
 ```
 
 ### Yarn
@@ -81,12 +73,11 @@ npm run typecheck  # typecheck all packages
 
 ## Lockfiles
 
-This monorepo supports **npm**, **pnpm**, **Yarn**, and **Bun**. Pick one package manager for your team and commit only its lockfile:
+This monorepo supports **npm**, **Yarn**, and **Bun**. Pick one package manager for your team and commit only its lockfile:
 
 | Manager | Lockfile |
 |---------|----------|
 | npm | `package-lock.json` |
-| pnpm | `pnpm-lock.yaml` |
 | Yarn | `yarn.lock` |
 | Bun | `bun.lock` |
 

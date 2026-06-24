@@ -12,7 +12,6 @@
   "engines": {
     "node": ">=22"
   },
-  "packageManager": "pnpm@9.15.9",
   "scripts": {
     "build": "node scripts/run-workspaces.mjs build",
     "dev": "node scripts/run-package.mjs @route-intelligence/cli dev",

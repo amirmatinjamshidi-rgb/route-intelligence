@@ -20,22 +20,20 @@ export default function InstallationPage() {
             <Strong>Node.js 22+</Strong>
           </LI>
           <LI>
-            Any of <Strong>npm 9+</Strong>, <Strong>pnpm 9+</Strong>, <Strong>Yarn</Strong>, or{" "}
-            <Strong>Bun 1+</Strong>
+            Any of <Strong>npm 9+</Strong>, <Strong>Yarn</Strong>, or <Strong>Bun 1+</Strong>
           </LI>
         </UL>
 
         <H2 id="install-the-cli">Install the CLI</H2>
         <P>The CLI is the fastest way to try Route Intelligence. Install it as a dev dependency:</P>
         <CodeBlock language="npm" code={`npm install -D @route-intelligence/cli @route-intelligence/next`} />
-        <CodeBlock language="pnpm" code={`pnpm add -D @route-intelligence/cli @route-intelligence/next`} />
         <CodeBlock language="yarn" code={`yarn add -D @route-intelligence/cli @route-intelligence/next`} />
         <CodeBlock language="bun" code={`bun add -d @route-intelligence/cli @route-intelligence/next`} />
 
         <Callout kind="tip" title="Pick one package manager">
-          The repo supports all four managers, but you should commit only one lockfile (
-          <InlineCode>package-lock.json</InlineCode>, <InlineCode>pnpm-lock.yaml</InlineCode>,{" "}
-          <InlineCode>yarn.lock</InlineCode>, or <InlineCode>bun.lock</InlineCode>). If you switch
+          The repo supports npm, Yarn, and Bun, but you should commit only one lockfile (
+          <InlineCode>package-lock.json</InlineCode>, <InlineCode>yarn.lock</InlineCode>, or{" "}
+          <InlineCode>bun.lock</InlineCode>). If you switch managers, delete{" "}
           managers, delete <InlineCode>node_modules</InlineCode> and reinstall.
         </Callout>
 

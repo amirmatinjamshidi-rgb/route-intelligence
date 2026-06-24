@@ -8,9 +8,6 @@ on:
 
 jobs:
   build:
-    strategy:
-      matrix:
-        package-manager: [npm, pnpm]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -18,51 +15,13 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 22
+          cache: npm
 
-      - name: Install (npm)
-        if: matrix.package-manager == 'npm'
-        run: npm ci
-
-      - name: Install (pnpm)
-        if: matrix.package-manager == 'pnpm'
-        uses: pnpm/action-setup@v4
-        with:
-          version: 9
-
-      - name: Setup Node cache (pnpm)
-        if: matrix.package-manager == 'pnpm'
-        uses: actions/setup-node@v4
-        with:
-          node-version: 22
-          cache: pnpm
-
-      - name: pnpm install
-        if: matrix.package-manager == 'pnpm'
-        run: pnpm install --frozen-lockfile
-
+      - run: npm ci
       - run: npm run lint
-        if: matrix.package-manager == 'npm'
-
-      - run: pnpm lint
-        if: matrix.package-manager == 'pnpm'
-
       - run: npm run typecheck
-        if: matrix.package-manager == 'npm'
-
-      - run: pnpm typecheck
-        if: matrix.package-manager == 'pnpm'
-
       - run: npm run build
-        if: matrix.package-manager == 'npm'
-
-      - run: pnpm build
-        if: matrix.package-manager == 'pnpm'
-
       - run: npm test
-        if: matrix.package-manager == 'npm'
-
-      - run: pnpm test
-        if: matrix.package-manager == 'pnpm'
 
   analyze-smoke:
     runs-on: ubuntu-latest

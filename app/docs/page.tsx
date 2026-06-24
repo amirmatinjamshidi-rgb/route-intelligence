@@ -58,7 +58,7 @@ export default function IntroductionPage() {
         <H2 id="next-steps">Next steps</H2>
         <CardGrid>
           <Card href="/docs/installation" title="Installation">
-            Add Route Intelligence to your project with npm, pnpm, Yarn, or Bun.
+            Add Route Intelligence to your project with npm, Yarn, or Bun.
           </Card>
           <Card href="/docs/quick-start" title="Quick Start">
             Analyze your routes and open the graph in under a minute.
