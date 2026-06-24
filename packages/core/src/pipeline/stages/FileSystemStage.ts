@@ -1,6 +1,6 @@
 import fg from 'fast-glob';
 import picomatch from 'picomatch';
-import type { PipelineContext, PipelineStage } from './types.js';
+import type { PipelineContext, PipelineStage } from '../types.js';
 
 export class FileSystemStage implements PipelineStage {
   readonly name = 'FileSystemStage';

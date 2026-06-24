@@ -163,7 +163,7 @@ export function extractNavigationCalls(
 
     if (calleeBase === 'back' || calleeBase === 'forward') {
       destination = { kind: 'dynamic', expression: calleeBase };
-    } else if (args[0]) {
+    } else if (args[0] && Node.isExpression(args[0])) {
       destination = resolveDestination(args[0]);
     }
 
@@ -287,7 +287,10 @@ export function extractWindowOpenCalls(
     const args = node.getArguments();
     calls.push({
       callee: 'window.open',
-      destination: args[0] ? resolveDestination(args[0]) : { kind: 'dynamic', expression: 'unknown' },
+      destination:
+        args[0] && Node.isExpression(args[0])
+          ? resolveDestination(args[0])
+          : { kind: 'dynamic', expression: 'unknown' },
       conditions: extractConditionsFromNode(node),
       loc: toLoc(node, filePath),
     });
