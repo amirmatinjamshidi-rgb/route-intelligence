@@ -1,6 +1,6 @@
 {
   "name": "route-intelligence",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "private": true,
   "description": "Routing intelligence platform for React applications",
   "type": "module",

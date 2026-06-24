@@ -6,6 +6,6 @@
   "linked": [],
   "access": "public",
   "baseBranch": "main",
-  "updateInternalDependencies": "patch",
-  "ignore": ["route-intelligence", "@route-intelligence/tsconfig", "@route-intelligence/biome-config"]
+  "updateInternalDependencies": "patch"
+
 }

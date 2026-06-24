@@ -2,17 +2,33 @@
   "name": "route-intelligence-vscode",
   "displayName": "Route Intelligence",
   "description": "Routing intelligence for React and Next.js applications",
-  "version": "0.1.0",
+  "version": "1.1.0",
   "publisher": "route-intelligence",
-  "engines": { "vscode": "^1.90.0" },
-  "categories": ["Other", "Linters"],
-  "activationEvents": ["onLanguage:typescript", "onLanguage:typescriptreact", "onLanguage:javascript", "onLanguage:javascriptreact"],
+  "engines": {
+    "vscode": "^1.90.0"
+  },
+  "categories": [
+    "Other",
+    "Linters"
+  ],
+  "activationEvents": [
+    "onLanguage:typescript",
+    "onLanguage:typescriptreact",
+    "onLanguage:javascript",
+    "onLanguage:javascriptreact"
+  ],
   "type": "module",
   "main": "./dist/extension.js",
   "contributes": {
     "commands": [
-      { "command": "route-intelligence.analyze", "title": "Route Intelligence: Analyze Project" },
-      { "command": "route-intelligence.showGraph", "title": "Route Intelligence: Show Route Graph" }
+      {
+        "command": "route-intelligence.analyze",
+        "title": "Route Intelligence: Analyze Project"
+      },
+      {
+        "command": "route-intelligence.showGraph",
+        "title": "Route Intelligence: Show Route Graph"
+      }
     ],
     "views": {
       "explorer": [

@@ -1,6 +1,6 @@
 {
   "name": "@route-intelligence/github-action",
-  "version": "0.1.0",
+  "version": "2.0.0",
   "description": "GitHub Action for Route Intelligence PR analysis",
   "type": "module",
   "exports": {
@@ -10,7 +10,10 @@
     }
   },
   "main": "./dist/index.js",
-  "files": ["dist", "action.yml"],
+  "files": [
+    "dist",
+    "action.yml"
+  ],
   "scripts": {
     "build": "tsup src/index.ts --format esm --dts --clean",
     "typecheck": "tsc --noEmit"
