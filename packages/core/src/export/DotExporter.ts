@@ -6,9 +6,7 @@ export function exportDot(graph: RouteGraph): string {
   for (const nodeId of graph.getAllNodeIds()) {
     const node = graph.getNode(nodeId);
     if (!node) continue;
-    lines.push(
-      `  "${escapeDot(nodeId)}" [label="${escapeDot(`${node.type}\\n${node.path}`)}"];`,
-    );
+    lines.push(`  "${escapeDot(nodeId)}" [label="${escapeDot(`${node.type}\\n${node.path}`)}"];`);
   }
 
   for (const edge of graph.getAllEdges()) {

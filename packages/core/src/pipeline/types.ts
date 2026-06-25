@@ -5,8 +5,8 @@ import type {
   ProjectContext,
   RawRoute,
 } from '@route-intelligence/shared';
-import { RouteGraph } from '../graph/RouteGraph.js';
 import type { SemanticFile } from '@route-intelligence/shared';
+import type { RouteGraph } from '../graph/RouteGraph.js';
 
 export interface PipelineContext {
   root: string;

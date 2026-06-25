@@ -1,5 +1,5 @@
 import { createHash } from 'node:crypto';
-import { readFileSync, writeFileSync, existsSync, mkdirSync } from 'node:fs';
+import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
 import type { GraphPatch, InvalidationSet, SerializedGraph } from '@route-intelligence/shared';
 import type { SemanticFile } from '@route-intelligence/shared';
@@ -99,10 +99,7 @@ export class IncrementalCache {
   }
 }
 
-export function computeGraphPatch(
-  before: SerializedGraph,
-  after: SerializedGraph,
-): GraphPatch {
+export function computeGraphPatch(before: SerializedGraph, after: SerializedGraph): GraphPatch {
   const beforeNodeIds = new Set(before.nodes.map((n) => n.id));
   const afterNodeIds = new Set(after.nodes.map((n) => n.id));
   const beforeEdgeIds = new Set(before.edges.map((e) => e.id));

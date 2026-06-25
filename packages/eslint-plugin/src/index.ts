@@ -1,8 +1,8 @@
 import { existsSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
-import type { ESLint, Rule } from 'eslint';
 import type { SerializedGraph } from '@route-intelligence/shared';
-import type { JSXAttribute, CallExpression, Program } from 'estree-jsx';
+import type { ESLint, Rule } from 'eslint';
+import type { CallExpression, JSXAttribute, Program } from 'estree-jsx';
 
 function loadGraph(cwd: string): SerializedGraph | null {
   const paths = [
@@ -137,7 +137,10 @@ const detectRouteCycles: Rule.RuleModule = {
 
     const edges = new Map<string, Set<string>>();
     for (const edge of graph.edges) {
-      if (edge.attributes.type === 'navigation' || edge.attributes.type === 'conditional-navigation') {
+      if (
+        edge.attributes.type === 'navigation' ||
+        edge.attributes.type === 'conditional-navigation'
+      ) {
         const set = edges.get(edge.source) ?? new Set();
         set.add(edge.target);
         edges.set(edge.source, set);
@@ -156,7 +159,9 @@ const detectRouteCycles: Rule.RuleModule = {
         if (!['push', 'navigate', 'redirect'].includes(text)) return;
 
         const filename = context.filename;
-        const sourceNode = graph.nodes.find((n) => n.attributes.filePath.includes(filename.split(/[/\\]/).pop() ?? ''));
+        const sourceNode = graph.nodes.find((n) =>
+          n.attributes.filePath.includes(filename.split(/[/\\]/).pop() ?? ''),
+        );
         if (!sourceNode) return;
 
         const targets = edges.get(sourceNode.id);

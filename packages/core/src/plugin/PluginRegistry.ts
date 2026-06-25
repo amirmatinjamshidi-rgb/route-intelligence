@@ -17,7 +17,10 @@ export class PluginRegistry {
     return [...this.plugins];
   }
 
-  async detectActive(root: string, config: import('@route-intelligence/shared').AnalyzerConfig): Promise<FrameworkPlugin[]> {
+  async detectActive(
+    root: string,
+    config: import('@route-intelligence/shared').AnalyzerConfig,
+  ): Promise<FrameworkPlugin[]> {
     const active: FrameworkPlugin[] = [];
 
     for (const plugin of this.plugins) {

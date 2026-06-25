@@ -1,6 +1,6 @@
 import { writeFileSync } from 'node:fs';
 import { resolve } from 'node:path';
-import { createAnalyzer, exportJson, type RouteGraph } from '@route-intelligence/core';
+import { type RouteGraph, createAnalyzer, exportJson } from '@route-intelligence/core';
 import { NextPlugin } from '@route-intelligence/next';
 import type { SerializedGraph } from '@route-intelligence/shared';
 
@@ -29,7 +29,10 @@ export function diffGraphs(before: SerializedGraph, after: SerializedGraph): Gra
   for (const [path, afterNode] of afterRoutes) {
     const beforeNode = beforeRoutes.get(path);
     if (!beforeNode) continue;
-    if (JSON.stringify(beforeNode.attributes.conditions) !== JSON.stringify(afterNode.attributes.conditions)) {
+    if (
+      JSON.stringify(beforeNode.attributes.conditions) !==
+      JSON.stringify(afterNode.attributes.conditions)
+    ) {
       modifiedConditions.push(path);
     }
   }
@@ -98,7 +101,9 @@ async function run(): Promise<void> {
   writeFileSync(resolve(root, 'ri-output', 'graph.json'), JSON.stringify(currentGraph, null, 2));
 
   const diff: GraphDiff = {
-    addedRoutes: currentGraph.nodes.filter((n) => n.attributes.type === 'route').map((n) => n.attributes.path),
+    addedRoutes: currentGraph.nodes
+      .filter((n) => n.attributes.type === 'route')
+      .map((n) => n.attributes.path),
     removedRoutes: [],
     modifiedConditions: [],
     newBrokenLinks: 0,

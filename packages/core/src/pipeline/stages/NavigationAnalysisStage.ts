@@ -68,8 +68,7 @@ export class NavigationAnalysisStage implements PipelineStage {
 
           if (!targetId) continue;
 
-          const edgeType =
-            edge.conditions.length > 0 ? 'conditional-navigation' : edge.type;
+          const edgeType = edge.conditions.length > 0 ? 'conditional-navigation' : edge.type;
 
           ctx.graph.addEdge(
             `nav:${sourceId}->${targetId}:${edge.loc.line}`,

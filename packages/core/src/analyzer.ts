@@ -1,5 +1,4 @@
 import { EventEmitter } from 'node:events';
-import chokidar from 'chokidar';
 import type {
   AnalysisResult,
   AnalyzerConfig,
@@ -9,16 +8,13 @@ import type {
   GraphPatch,
 } from '@route-intelligence/shared';
 import { defineConfig } from '@route-intelligence/shared';
+import chokidar from 'chokidar';
 import { exportDot } from './export/DotExporter.js';
 import { exportHtml, exportMarkdown } from './export/HtmlExporter.js';
 import { exportJson } from './export/JsonExporter.js';
 import { exportMermaid } from './export/MermaidExporter.js';
 import { exportPlantUML } from './export/PlantUMLExporter.js';
-import {
-  computeGraphPatch,
-  IncrementalCache,
-} from './incremental/IncrementalCache.js';
-import { Invalidator } from './incremental/Invalidator.js';
+import { RouteGraph } from './graph/RouteGraph.js';
 import {
   detectInfiniteRedirects,
   findCycles,
@@ -27,7 +23,8 @@ import {
   getMostConnected,
 } from './graph/algorithms.js';
 import { metricsToMetadata } from './graph/metrics.js';
-import { RouteGraph } from './graph/RouteGraph.js';
+import { IncrementalCache, computeGraphPatch } from './incremental/IncrementalCache.js';
+import { Invalidator } from './incremental/Invalidator.js';
 import { Pipeline } from './pipeline/Pipeline.js';
 import type { PipelineContext } from './pipeline/types.js';
 import { PluginRegistry } from './plugin/PluginRegistry.js';
@@ -129,13 +126,7 @@ export function createAnalyzer(config: AnalyzerConfig): Analyzer {
 
 export { defineConfig };
 export { RouteGraph };
-export {
-  findCycles,
-  findDeadRoutes,
-  findShortestPath,
-  detectInfiniteRedirects,
-  getMostConnected,
-};
+export { findCycles, findDeadRoutes, findShortestPath, detectInfiniteRedirects, getMostConnected };
 export { exportJson, exportMermaid, exportPlantUML, exportDot, exportHtml, exportMarkdown };
 export { PluginRegistry };
 export { IncrementalCache, Invalidator, computeGraphPatch };

@@ -1,9 +1,5 @@
 import type { Diagnostic, EdgeAttributes } from '@route-intelligence/shared';
-import {
-  detectInfiniteRedirects,
-  findCycles,
-  findDeadRoutes,
-} from '../../graph/algorithms.js';
+import { detectInfiniteRedirects, findCycles, findDeadRoutes } from '../../graph/algorithms.js';
 import type { PipelineContext, PipelineStage } from '../types.js';
 import { createProjectContext } from '../types.js';
 

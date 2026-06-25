@@ -1,17 +1,17 @@
+import type { Condition, NavigationDestination, SourceLocation } from '@route-intelligence/shared';
+import type { NavigationCall } from '@route-intelligence/shared';
 import {
-  Node,
-  SyntaxKind,
   type CallExpression,
   type Expression,
   type JsxAttribute,
+  Node,
   type SourceFile,
+  SyntaxKind,
 } from 'ts-morph';
-import type { Condition, NavigationDestination, SourceLocation } from '@route-intelligence/shared';
-import type { NavigationCall } from '@route-intelligence/shared';
 
 function toLoc(node: Node, filePath: string): SourceLocation {
   const start = node.getStartLineNumber();
-  const col = node.getStart() - (node.getSourceFile().getLineAndColumnAtPos(node.getStart()).column);
+  const col = node.getStart() - node.getSourceFile().getLineAndColumnAtPos(node.getStart()).column;
   return {
     filePath,
     line: start,
@@ -273,10 +273,7 @@ export function extractWindowLocationAssignments(
   return calls;
 }
 
-export function extractWindowOpenCalls(
-  sourceFile: SourceFile,
-  filePath: string,
-): NavigationCall[] {
+export function extractWindowOpenCalls(sourceFile: SourceFile, filePath: string): NavigationCall[] {
   const calls: NavigationCall[] = [];
 
   sourceFile.forEachDescendant((node) => {

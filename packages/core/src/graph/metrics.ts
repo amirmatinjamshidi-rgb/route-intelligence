@@ -1,11 +1,11 @@
 import type { GraphMetadata } from '@route-intelligence/shared';
+import type { RouteGraph } from './RouteGraph.js';
 import {
   detectInfiniteRedirects,
   findCycles,
   findDeadRoutes,
   getMostConnected,
 } from './algorithms.js';
-import type { RouteGraph } from './RouteGraph.js';
 
 export interface GraphMetrics {
   totalRoutes: number;
@@ -31,11 +31,9 @@ export function computeMetrics(graph: RouteGraph): GraphMetrics {
 
   const depths = routeNodes.map((id) => graph.getNode(id)?.depth ?? 0);
   const maxDepth = depths.length > 0 ? Math.max(...depths) : 0;
-  const averageDepth =
-    depths.length > 0 ? depths.reduce((a, b) => a + b, 0) / depths.length : 0;
+  const averageDepth = depths.length > 0 ? depths.reduce((a, b) => a + b, 0) / depths.length : 0;
 
-  const deadRoutePct =
-    routeNodes.length > 0 ? deadRoutes.length / routeNodes.length : 0;
+  const deadRoutePct = routeNodes.length > 0 ? deadRoutes.length / routeNodes.length : 0;
   const cyclePenalty = (cycles.length + redirectCycles.length) * 5;
   const depthPenalty = maxDepth > 10 ? (maxDepth - 10) * 2 : 0;
 
@@ -44,10 +42,7 @@ export function computeMetrics(graph: RouteGraph): GraphMetrics {
     Math.min(100, 100 - deadRoutePct * 40 - cyclePenalty - depthPenalty),
   );
 
-  const riskScore = Math.max(
-    0,
-    Math.min(100, deadRoutePct * 30 + cyclePenalty * 2 + depthPenalty),
-  );
+  const riskScore = Math.max(0, Math.min(100, deadRoutePct * 30 + cyclePenalty * 2 + depthPenalty));
 
   return {
     totalRoutes: routeNodes.length,
@@ -66,10 +61,7 @@ export function computeMetrics(graph: RouteGraph): GraphMetrics {
   };
 }
 
-export function metricsToMetadata(
-  graph: RouteGraph,
-  pluginIds: string[],
-): GraphMetadata {
+export function metricsToMetadata(graph: RouteGraph, pluginIds: string[]): GraphMetadata {
   const metrics = computeMetrics(graph);
   return {
     pluginIds,

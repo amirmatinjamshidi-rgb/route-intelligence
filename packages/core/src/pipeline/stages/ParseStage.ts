@@ -27,10 +27,7 @@ export class ParseStage implements PipelineStage {
         if (!sourceFile) {
           sourceFile = this.project.addSourceFileAtPath(filePath);
         }
-        ctx.semanticFiles.set(
-          filePath,
-          createSemanticFile(sourceFile, filePath, customWrappers),
-        );
+        ctx.semanticFiles.set(filePath, createSemanticFile(sourceFile, filePath, customWrappers));
       } catch {
         // Skip unparseable files
       }

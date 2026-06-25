@@ -1,4 +1,3 @@
-import { MultiDirectedGraph } from 'graphology';
 import type {
   EdgeAttributes,
   GraphMetadata,
@@ -8,6 +7,7 @@ import type {
   SerializedNode,
 } from '@route-intelligence/shared';
 import type { RouteGraphLike } from '@route-intelligence/shared';
+import { MultiDirectedGraph } from 'graphology';
 
 export class RouteGraph implements RouteGraphLike {
   private readonly graph: MultiDirectedGraph<NodeAttributes, EdgeAttributes>;
@@ -82,7 +82,9 @@ export class RouteGraph implements RouteGraphLike {
     }));
   }
 
-  getIncomingEdges(nodeId: string): Array<{ id: string; source: string; attributes: EdgeAttributes }> {
+  getIncomingEdges(
+    nodeId: string,
+  ): Array<{ id: string; source: string; attributes: EdgeAttributes }> {
     if (!this.graph.hasNode(nodeId)) return [];
     return this.graph.inEdges(nodeId).map((edgeId) => ({
       id: edgeId,
@@ -91,7 +93,9 @@ export class RouteGraph implements RouteGraphLike {
     }));
   }
 
-  getOutgoingEdges(nodeId: string): Array<{ id: string; target: string; attributes: EdgeAttributes }> {
+  getOutgoingEdges(
+    nodeId: string,
+  ): Array<{ id: string; target: string; attributes: EdgeAttributes }> {
     if (!this.graph.hasNode(nodeId)) return [];
     return this.graph.outEdges(nodeId).map((edgeId) => ({
       id: edgeId,

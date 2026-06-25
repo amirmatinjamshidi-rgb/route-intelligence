@@ -1,22 +1,15 @@
 import type { Diagnostic, GraphMetadata } from '@route-intelligence/shared';
 import { FileSystemStage } from './stages/FileSystemStage.js';
-import { ParseStage } from './stages/ParseStage.js';
-import { SemanticStage } from './stages/SemanticStage.js';
-import {
-  GraphBuildStage,
-  RouteDiscoveryStage,
-} from './stages/RouteDiscoveryStage.js';
 import {
   ConditionalAnalysisStage,
   GraphEnrichmentStage,
   MiddlewareAnalysisStage,
   NavigationAnalysisStage,
 } from './stages/NavigationAnalysisStage.js';
-import {
-  MetricsStage,
-  OutputStage,
-  StaticAnalysisStage,
-} from './stages/StaticAnalysisStage.js';
+import { ParseStage } from './stages/ParseStage.js';
+import { GraphBuildStage, RouteDiscoveryStage } from './stages/RouteDiscoveryStage.js';
+import { SemanticStage } from './stages/SemanticStage.js';
+import { MetricsStage, OutputStage, StaticAnalysisStage } from './stages/StaticAnalysisStage.js';
 import type { PipelineContext, PipelineStage } from './types.js';
 
 export class Pipeline {

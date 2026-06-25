@@ -1,10 +1,10 @@
-import { Node, type SourceFile } from 'ts-morph';
 import type {
   ComponentDeclaration,
   SemanticExport,
   SemanticFile,
   SemanticImport,
 } from '@route-intelligence/shared';
+import { Node, type SourceFile } from 'ts-morph';
 import { isClientComponent, isServerComponent } from './ComponentClassifier.js';
 import { extractConditionalBlocks } from './ConditionalVisitor.js';
 import {

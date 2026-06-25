@@ -1,7 +1,7 @@
+import type { EdgeAttributes, NodeAttributes } from '@route-intelligence/shared';
 import { hasCycle, willCreateCycle } from 'graphology-dag';
 import { bidirectional } from 'graphology-shortest-path';
 import { bfsFromNode } from 'graphology-traversal';
-import type { EdgeAttributes, NodeAttributes } from '@route-intelligence/shared';
 import type { RouteGraph } from './RouteGraph.js';
 
 export interface CycleResult {
@@ -120,9 +120,7 @@ export function detectInfiniteRedirects(graph: RouteGraph): CycleResult[] {
   const redirectEdges = graph.getAllEdges().filter((e) => {
     const attrs = graph.getUnderlyingGraph().getEdgeAttributes(e.id);
     return (
-      attrs.type === 'redirect' ||
-      attrs.type === 'permanent-redirect' ||
-      attrs.type === 'rewrite'
+      attrs.type === 'redirect' || attrs.type === 'permanent-redirect' || attrs.type === 'rewrite'
     );
   });
 
@@ -168,9 +166,9 @@ export function detectFlows(
     const visited = new Set<string>([start]);
 
     while (true) {
-      const outgoing = graph.getOutgoingEdges(current).filter((e) =>
-        edgeTypes.includes(e.attributes.type),
-      );
+      const outgoing = graph
+        .getOutgoingEdges(current)
+        .filter((e) => edgeTypes.includes(e.attributes.type));
       if (outgoing.length !== 1) break;
       const next = outgoing[0]?.target;
       if (!next || visited.has(next)) break;
@@ -222,19 +220,12 @@ export function topologicalSort(graph: RouteGraph): string[] | null {
   return sorted.length === graph.getAllNodeIds().length ? sorted : null;
 }
 
-export function wouldCreateCycle(
-  graph: RouteGraph,
-  source: string,
-  target: string,
-): boolean {
+export function wouldCreateCycle(graph: RouteGraph, source: string, target: string): boolean {
   const underlying = graph.getUnderlyingGraph();
   return willCreateCycle(underlying, source, target);
 }
 
-export function findReachableFrom(
-  graph: RouteGraph,
-  startIds: string[],
-): Set<string> {
+export function findReachableFrom(graph: RouteGraph, startIds: string[]): Set<string> {
   const reachable = new Set<string>();
   const underlying = graph.getUnderlyingGraph();
 

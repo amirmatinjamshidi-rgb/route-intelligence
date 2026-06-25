@@ -1,6 +1,6 @@
-import { Node, type SourceFile } from 'ts-morph';
 import type { Condition, SourceLocation } from '@route-intelligence/shared';
 import type { ConditionalBlock } from '@route-intelligence/shared';
+import { Node, type SourceFile } from 'ts-morph';
 
 function toLoc(node: Node, filePath: string): SourceLocation {
   return {

@@ -1,6 +1,6 @@
 import {
-  createDefaultNodeAttributes,
   createDefaultEdgeAttributes,
+  createDefaultNodeAttributes,
 } from '@route-intelligence/shared';
 import type { PipelineContext, PipelineStage } from '../types.js';
 import { createProjectContext } from '../types.js';

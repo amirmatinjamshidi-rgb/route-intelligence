@@ -1,5 +1,5 @@
 import type { FileChangeEvent, InvalidationSet } from '@route-intelligence/shared';
-import { IncrementalCache, readFileContent } from './IncrementalCache.js';
+import { type IncrementalCache, readFileContent } from './IncrementalCache.js';
 
 export class Invalidator {
   constructor(private readonly cache: IncrementalCache) {}
