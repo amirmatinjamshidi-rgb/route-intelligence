@@ -1,7 +1,7 @@
-import { Node, type SourceFile } from 'ts-morph';
 import type { Condition, RouteGraphLike } from '@route-intelligence/shared';
 import { createDefaultEdgeAttributes } from '@route-intelligence/shared';
 import picomatch from 'picomatch';
+import { Node, type SourceFile } from 'ts-morph';
 
 export interface MiddlewareAnalysis {
   matchers: string[];
@@ -10,7 +10,10 @@ export interface MiddlewareAnalysis {
   conditions: Condition[];
 }
 
-export function analyzeMiddlewareFile(sourceFile: SourceFile, filePath: string): MiddlewareAnalysis {
+export function analyzeMiddlewareFile(
+  sourceFile: SourceFile,
+  filePath: string,
+): MiddlewareAnalysis {
   const matchers: string[] = [];
   const redirects: Array<{ path: string; conditions: Condition[] }> = [];
   const rewrites: Array<{ path: string; conditions: Condition[] }> = [];
