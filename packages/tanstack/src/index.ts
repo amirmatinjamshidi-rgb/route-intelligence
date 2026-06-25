@@ -1,6 +1,5 @@
 import { existsSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
-import fg from 'fast-glob';
 import type {
   AnalysisContext,
   Diagnostic,
@@ -12,6 +11,7 @@ import type {
   RouteGraphLike,
   SemanticFile,
 } from '@route-intelligence/shared';
+import fg from 'fast-glob';
 
 export interface TanStackPluginOptions {
   routesDir?: string;
@@ -112,7 +112,13 @@ export function TanStackPlugin(options: TanStackPluginOptions = {}): FrameworkPl
         }
       }
 
-      return { filePath: file.path, edges, conditions: [], tags: ['tanstack-router'], diagnostics: [] };
+      return {
+        filePath: file.path,
+        edges,
+        conditions: [],
+        tags: ['tanstack-router'],
+        diagnostics: [],
+      };
     },
 
     async enrichGraph(_graph: RouteGraphLike, _ctx: ProjectContext): Promise<void> {},
