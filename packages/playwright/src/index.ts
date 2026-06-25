@@ -93,7 +93,9 @@ export function generateBrokenLinkTests(graph: SerializedGraph): string {
 }
 
 export function generateMissingRouteTests(graph: SerializedGraph): string {
-  const deadRoutes = graph.nodes.filter((n) => n.attributes.isDead && n.attributes.type === 'route');
+  const deadRoutes = graph.nodes.filter(
+    (n) => n.attributes.isDead && n.attributes.type === 'route',
+  );
 
   const lines: string[] = [
     "import { test, expect } from '@playwright/test';",
@@ -102,9 +104,7 @@ export function generateMissingRouteTests(graph: SerializedGraph): string {
   ];
 
   for (const route of deadRoutes) {
-    lines.push(
-      `  test.todo('add coverage for dead route ${route.attributes.path}');`,
-    );
+    lines.push(`  test.todo('add coverage for dead route ${route.attributes.path}');`);
   }
 
   lines.push('});');
