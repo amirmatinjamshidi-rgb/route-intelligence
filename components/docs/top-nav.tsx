@@ -1,7 +1,7 @@
-import Link from "next/link";
-import { Logo } from "@/components/logo";
-import { GITHUB_URL } from "@/lib/navigation";
-import { MobileNav } from "./mobile-nav";
+import { Logo } from '@/components/logo';
+import { GITHUB_URL } from '@/lib/navigation';
+import Link from 'next/link';
+import { MobileNav } from './mobile-nav';
 
 export function TopNav() {
   return (

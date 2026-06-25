@@ -1,9 +1,8 @@
-"use client";
+'use client';
 
-import Link from "next/link";
-import { usePathname } from "next/navigation";
-import { getAdjacentDocs } from "@/lib/navigation";
-
+import { getAdjacentDocs } from '@/lib/navigation';
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 
 export function PageNav() {
   const pathname = usePathname();

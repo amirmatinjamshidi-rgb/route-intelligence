@@ -1,5 +1,5 @@
-import Link from "next/link";
-import type { ReactNode } from "react";
+import Link from 'next/link';
+import type { ReactNode } from 'react';
 
 export function Prose({ children }: { children: ReactNode }) {
   return <div className="flex flex-col gap-5 leading-7 text-ink-muted">{children}</div>;
@@ -66,9 +66,9 @@ export function InlineCode({ children }: { children: ReactNode }) {
 }
 
 export function A({ href, children }: { href: string; children: ReactNode }) {
-  const external = href.startsWith("http");
+  const external = href.startsWith('http');
   const className =
-    "font-medium text-brand underline decoration-brand/30 underline-offset-2 transition hover:decoration-brand";
+    'font-medium text-brand underline decoration-brand/30 underline-offset-2 transition hover:decoration-brand';
   if (external) {
     return (
       <a href={href} target="_blank" rel="noreferrer" className={className}>
@@ -86,7 +86,6 @@ export function A({ href, children }: { href: string; children: ReactNode }) {
 export function Strong({ children }: { children: ReactNode }) {
   return <strong className="font-semibold text-ink">{children}</strong>;
 }
-
 
 export function Table({ head, rows }: { head: string[]; rows: ReactNode[][] }) {
   return (

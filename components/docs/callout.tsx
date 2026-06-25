@@ -1,27 +1,27 @@
-import type { ReactNode } from "react";
+import type { ReactNode } from 'react';
 
-type CalloutKind = "note" | "tip" | "warning";
+type CalloutKind = 'note' | 'tip' | 'warning';
 
 const styles: Record<CalloutKind, { ring: string; label: string; text: string }> = {
   note: {
-    ring: "border-brand/30 bg-brand/5",
-    label: "text-brand",
-    text: "Note",
+    ring: 'border-brand/30 bg-brand/5',
+    label: 'text-brand',
+    text: 'Note',
   },
   tip: {
-    ring: "border-emerald-500/30 bg-emerald-500/5",
-    label: "text-emerald-600 dark:text-emerald-400",
-    text: "Tip",
+    ring: 'border-emerald-500/30 bg-emerald-500/5',
+    label: 'text-emerald-600 dark:text-emerald-400',
+    text: 'Tip',
   },
   warning: {
-    ring: "border-amber-500/30 bg-amber-500/5",
-    label: "text-amber-600 dark:text-amber-400",
-    text: "Warning",
+    ring: 'border-amber-500/30 bg-amber-500/5',
+    label: 'text-amber-600 dark:text-amber-400',
+    text: 'Warning',
   },
 };
 
 export function Callout({
-  kind = "note",
+  kind = 'note',
   title,
   children,
 }: {

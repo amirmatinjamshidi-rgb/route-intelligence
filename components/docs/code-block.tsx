@@ -1,7 +1,6 @@
-import { CopyButton } from "./copy-button";
+import { CopyButton } from './copy-button';
 
 interface CodeBlockProps {
-  
   code: string;
 
   language?: string;
@@ -10,7 +9,7 @@ interface CodeBlockProps {
 }
 
 export function CodeBlock({ code, language, filename }: CodeBlockProps) {
-  const trimmed = code.replace(/^\n+/, "").replace(/\n+$/, "");
+  const trimmed = code.replace(/^\n+/, '').replace(/\n+$/, '');
   const label = filename ?? language;
 
   return (

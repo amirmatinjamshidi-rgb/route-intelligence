@@ -1,9 +1,8 @@
-"use client";
+'use client';
 
-import { useEffect, useState } from "react";
-import { usePathname } from "next/navigation";
-import { Sidebar } from "./sidebar";
-
+import { usePathname } from 'next/navigation';
+import { useEffect, useState } from 'react';
+import { Sidebar } from './sidebar';
 
 export function MobileNav() {
   const [open, setOpen] = useState(false);

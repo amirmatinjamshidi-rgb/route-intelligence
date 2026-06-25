@@ -1,6 +1,6 @@
-import type { ReactNode } from "react";
-import { Lead } from "./content";
-import { PageNav } from "./page-nav";
+import type { ReactNode } from 'react';
+import { Lead } from './content';
+import { PageNav } from './page-nav';
 
 /**
  * Standard shell for every documentation page: an eyebrow + title + lead

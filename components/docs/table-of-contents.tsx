@@ -1,7 +1,7 @@
-"use client";
+'use client';
 
-import { useEffect, useState } from "react";
-import { usePathname } from "next/navigation";
+import { usePathname } from 'next/navigation';
+import { useEffect, useState } from 'react';
 
 interface Heading {
   id: string;
@@ -9,21 +9,18 @@ interface Heading {
   level: number;
 }
 
-
 export function TableOfContents() {
   const pathname = usePathname();
   const [headings, setHeadings] = useState<Heading[]>([]);
-  const [activeId, setActiveId] = useState<string>("");
+  const [activeId, setActiveId] = useState<string>('');
 
   useEffect(() => {
-    const nodes = Array.from(
-      document.querySelectorAll<HTMLElement>("main h2[id], main h3[id]"),
-    );
+    const nodes = Array.from(document.querySelectorAll<HTMLElement>('main h2[id], main h3[id]'));
     setHeadings(
       nodes.map((node) => ({
         id: node.id,
-        text: node.textContent?.replace(/#$/, "").trim() ?? "",
-        level: node.tagName === "H2" ? 2 : 3,
+        text: node.textContent?.replace(/#$/, '').trim() ?? '',
+        level: node.tagName === 'H2' ? 2 : 3,
       })),
     );
 
@@ -33,7 +30,7 @@ export function TableOfContents() {
           if (entry.isIntersecting) setActiveId(entry.target.id);
         }
       },
-      { rootMargin: "0px 0px -75% 0px", threshold: 1 },
+      { rootMargin: '0px 0px -75% 0px', threshold: 1 },
     );
     for (const node of nodes) observer.observe(node);
     return () => observer.disconnect();
@@ -50,11 +47,11 @@ export function TableOfContents() {
             <a
               href={`#${heading.id}`}
               className={`-ml-px block border-l py-1 text-sm transition ${
-                heading.level === 3 ? "pl-6" : "pl-3"
+                heading.level === 3 ? 'pl-6' : 'pl-3'
               } ${
                 activeId === heading.id
-                  ? "border-brand font-medium text-brand"
-                  : "border-transparent text-ink-muted hover:text-ink"
+                  ? 'border-brand font-medium text-brand'
+                  : 'border-transparent text-ink-muted hover:text-ink'
               }`}
             >
               {heading.text}

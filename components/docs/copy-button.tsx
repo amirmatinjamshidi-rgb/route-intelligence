@@ -1,6 +1,6 @@
-"use client";
+'use client';
 
-import { useState } from "react";
+import { useState } from 'react';
 
 export function CopyButton({ value }: { value: string }) {
   const [copied, setCopied] = useState(false);
@@ -22,7 +22,7 @@ export function CopyButton({ value }: { value: string }) {
       className="rounded-md border border-line bg-bg px-2 py-1 font-mono text-xs text-ink-muted transition hover:border-brand hover:text-brand"
       aria-label="Copy code to clipboard"
     >
-      {copied ? "Copied" : "Copy"}
+      {copied ? 'Copied' : 'Copy'}
     </button>
   );
 }
