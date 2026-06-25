@@ -4,11 +4,7 @@
   "private": true,
   "description": "Routing intelligence platform for React applications",
   "type": "module",
-  "workspaces": [
-    "packages/*",
-    "apps/*",
-    "tooling/*"
-  ],
+  "workspaces": ["packages/*", "apps/*", "tooling/*"],
   "engines": {
     "node": ">=22"
   },

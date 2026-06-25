@@ -13,9 +13,7 @@
       "import": "./dist/cli.js"
     }
   },
-  "files": [
-    "dist"
-  ],
+  "files": ["dist"],
   "scripts": {
     "build": "tsup src/cli.ts --format esm --dts --clean",
     "dev": "tsup src/cli.ts --format esm --dts --watch",
