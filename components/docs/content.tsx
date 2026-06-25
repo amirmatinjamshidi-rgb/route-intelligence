@@ -101,11 +101,14 @@ export function Table({ head, rows }: { head: string[]; rows: ReactNode[][] }) {
           </tr>
         </thead>
         <tbody>
-          {rows.map((row, i) => (
-            <tr key={i} className="align-top">
-              {row.map((cell, j) => (
+          {rows.map((row) => (
+            <tr
+              key={head.map((column, col) => `${column}:${String(row[col])}`).join('|')}
+              className="align-top"
+            >
+              {row.map((cell, col) => (
                 <td
-                  key={j}
+                  key={head[col]}
                   className="border-b border-line px-4 py-3 text-ink-muted last:border-b-0 [tr:last-child_&]:border-b-0"
                 >
                   {cell}

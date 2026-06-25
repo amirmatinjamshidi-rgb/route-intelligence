@@ -6,12 +6,11 @@ import { Sidebar } from './sidebar';
 
 export function MobileNav() {
   const [open, setOpen] = useState(false);
-  const pathname = usePathname();
+  // const pathname = usePathname();
 
-  // Close the drawer whenever the route changes.
   useEffect(() => {
     setOpen(false);
-  }, [pathname]);
+  }, []);
 
   return (
     <div className="lg:hidden">
