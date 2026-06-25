@@ -1,32 +1,32 @@
-import Link from "next/link";
-import { CodeBlock } from "@/components/docs/code-block";
-import { Logo } from "@/components/logo";
-import { GITHUB_URL } from "@/lib/navigation";
+import { CodeBlock } from '@/components/docs/code-block';
+import { Logo } from '@/components/logo';
+import { GITHUB_URL } from '@/lib/navigation';
+import Link from 'next/link';
 
 const features = [
   {
-    title: "A typed route graph",
-    body: "Every route, layout, API handler, redirect, and navigation in one queryable model.",
+    title: 'A typed route graph',
+    body: 'Every route, layout, API handler, redirect, and navigation in one queryable model.',
   },
   {
-    title: "Static diagnostics",
-    body: "Dead routes, broken links, and redirect cycles — caught in CI, before runtime.",
+    title: 'Static diagnostics',
+    body: 'Dead routes, broken links, and redirect cycles — caught in CI, before runtime.',
   },
   {
-    title: "Framework-agnostic core",
-    body: "Next.js, React Router, and TanStack Router support via small, composable plugins.",
+    title: 'Framework-agnostic core',
+    body: 'Next.js, React Router, and TanStack Router support via small, composable plugins.',
   },
   {
-    title: "Visualize & document",
-    body: "Export to Mermaid, PlantUML, DOT, HTML, or an interactive browser graph.",
+    title: 'Visualize & document',
+    body: 'Export to Mermaid, PlantUML, DOT, HTML, or an interactive browser graph.',
   },
   {
-    title: "Editor & CI integrations",
-    body: "A CLI, VS Code extension, ESLint rules, and a GitHub Action for pull requests.",
+    title: 'Editor & CI integrations',
+    body: 'A CLI, VS Code extension, ESLint rules, and a GitHub Action for pull requests.',
   },
   {
-    title: "Incremental by design",
-    body: "Watch mode hashes files and only recomputes the part of the graph that changed.",
+    title: 'Incremental by design',
+    body: 'Watch mode hashes files and only recomputes the part of the graph that changed.',
   },
 ];
 
@@ -56,15 +56,13 @@ export default function HomePage() {
       </header>
 
       <main className="flex-1">
-      
         <section className="mx-auto max-w-6xl px-4 pb-12 pt-20 text-center sm:px-6 sm:pt-28">
           <span className="inline-flex items-center gap-2 rounded-full border border-line bg-surface px-3 py-1 text-sm text-ink-muted">
             <span className="h-1.5 w-1.5 rounded-full bg-brand" />
             Static routing analysis for React & Next.js
           </span>
           <h1 className="mx-auto mt-6 max-w-3xl text-5xl font-extrabold tracking-tight text-ink sm:text-6xl">
-            See your routing as a{" "}
-            <span className="text-brand">graph</span>.
+            See your routing as a <span className="text-brand">graph</span>.
           </h1>
           <p className="mx-auto mt-6 max-w-2xl text-lg leading-8 text-ink-muted sm:text-xl">
             Route Intelligence is the React DevTools for routing. It statically analyzes your
@@ -95,14 +93,10 @@ npx route-intelligence graph --port 3001`}
           </div>
         </section>
 
-      
         <section className="mx-auto max-w-6xl px-4 py-16 sm:px-6">
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {features.map((feature) => (
-              <div
-                key={feature.title}
-                className="rounded-2xl border border-line bg-surface p-6"
-              >
+              <div key={feature.title} className="rounded-2xl border border-line bg-surface p-6">
                 <h2 className="font-semibold text-ink">{feature.title}</h2>
                 <p className="mt-2 text-sm leading-6 text-ink-muted">{feature.body}</p>
               </div>
@@ -110,7 +104,6 @@ npx route-intelligence graph --port 3001`}
           </div>
         </section>
 
-      
         <section className="mx-auto max-w-6xl px-4 pb-24 sm:px-6">
           <div className="flex flex-col items-center gap-4 rounded-3xl border border-line bg-surface px-6 py-14 text-center">
             <h2 className="max-w-xl text-3xl font-bold tracking-tight text-ink">

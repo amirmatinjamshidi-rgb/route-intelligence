@@ -1,10 +1,10 @@
-import type { Metadata } from "next";
-import { Callout } from "@/components/docs/callout";
-import { Card, CardGrid } from "@/components/docs/card";
-import { A, H2, InlineCode, LI, P, Prose, Strong, UL } from "@/components/docs/content";
-import { DocPage } from "@/components/docs/doc-page";
+import { Callout } from '@/components/docs/callout';
+import { Card, CardGrid } from '@/components/docs/card';
+import { A, H2, InlineCode, LI, P, Prose, Strong, UL } from '@/components/docs/content';
+import { DocPage } from '@/components/docs/doc-page';
+import type { Metadata } from 'next';
 
-export const metadata: Metadata = { title: "Introduction" };
+export const metadata: Metadata = { title: 'Introduction' };
 
 export default function IntroductionPage() {
   return (
@@ -15,8 +15,8 @@ export default function IntroductionPage() {
     >
       <Prose>
         <P>
-          Modern apps spread routing across dozens of files: pages, layouts, middleware, and{" "}
-          <InlineCode>{"<Link>"}</InlineCode> calls scattered through components. Route Intelligence
+          Modern apps spread routing across dozens of files: pages, layouts, middleware, and{' '}
+          <InlineCode>{'<Link>'}</InlineCode> calls scattered through components. Route Intelligence
           reads all of it <Strong>without running your app</Strong> and turns it into a single graph
           you can query, visualize, lint, and document.
         </P>
@@ -32,8 +32,8 @@ export default function IntroductionPage() {
             missing error boundaries, caught before runtime.
           </LI>
           <LI>
-            <Strong>Visualizations & docs</Strong> — export to Mermaid, PlantUML, DOT, HTML, JSON, or
-            an interactive browser graph.
+            <Strong>Visualizations & docs</Strong> — export to Mermaid, PlantUML, DOT, HTML, JSON,
+            or an interactive browser graph.
           </LI>
           <LI>
             <Strong>Ecosystem integrations</Strong> — a CLI, VS Code extension, ESLint rules, a
@@ -43,7 +43,7 @@ export default function IntroductionPage() {
 
         <H2 id="how-it-works">How it works</H2>
         <P>
-          The core engine never depends on React. Instead, framework support is provided through{" "}
+          The core engine never depends on React. Instead, framework support is provided through{' '}
           <Strong>plugins</Strong> (Next.js, React Router, TanStack Router). A plugin teaches the
           analyzer how a framework maps files to routes; the core handles parsing, graph building,
           analysis, and export. Everything flows through one shared, typed graph model.

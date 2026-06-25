@@ -1,27 +1,27 @@
-import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
-import "./globals.css";
+import type { Metadata } from 'next';
+import { Geist, Geist_Mono } from 'next/font/google';
+import './globals.css';
 
 const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
+  variable: '--font-geist-sans',
+  subsets: ['latin'],
 });
 
 const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
+  variable: '--font-geist-mono',
+  subsets: ['latin'],
 });
 
 export const metadata: Metadata = {
   title: {
-    default: "Route Intelligence",
-    template: "%s · Route Intelligence",
+    default: 'Route Intelligence',
+    template: '%s · Route Intelligence',
   },
   icons: {
-    icon: "/favicon.png",
-  } ,
+    icon: '/favicon.png',
+  },
   description:
-    "The React DevTools for routing — statically analyze React/Next.js apps and build a complete, typed graph of your routing architecture.",
+    'The React DevTools for routing — statically analyze React/Next.js apps and build a complete, typed graph of your routing architecture.',
 };
 
 export default function RootLayout({
@@ -30,10 +30,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html
-      lang="en"
-      className={`${geistSans.variable} ${geistMono.variable}`}
-    >
+    <html lang="en" className={`${geistSans.variable} ${geistMono.variable}`}>
       <body className="min-h-screen bg-bg text-ink">{children}</body>
     </html>
   );
