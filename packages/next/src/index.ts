@@ -1,7 +1,5 @@
 import { existsSync, readdirSync, statSync } from 'node:fs';
 import { basename, dirname, join, relative, sep } from 'node:path';
-import { Project } from 'ts-morph';
-import { analyzeMiddlewareFile, applyMiddlewareToGraph } from './middleware.js';
 import type {
   AnalysisContext,
   Diagnostic,
@@ -16,6 +14,8 @@ import type {
   SemanticFile,
 } from '@route-intelligence/shared';
 import { createDefaultEdgeAttributes } from '@route-intelligence/shared';
+import { Project } from 'ts-morph';
+import { analyzeMiddlewareFile, applyMiddlewareToGraph } from './middleware.js';
 
 export interface NextPluginOptions {
   appDir?: string;
@@ -212,11 +212,7 @@ function segmentsToUrlPath(segments: string[], basePath = ''): string {
   return basePath ? `${basePath}${path === '/' ? '' : path}` : path || '/';
 }
 
-function walkAppDirectory(
-  dir: string,
-  appRoot: string,
-  basePath: string,
-): RawRoute[] {
+function walkAppDirectory(dir: string, appRoot: string, basePath: string): RawRoute[] {
   const routes: RawRoute[] = [];
 
   let entries: string[];
@@ -251,7 +247,8 @@ function walkAppDirectory(
       id,
       type: routeType,
       filePath: fullPath,
-      urlPath: routeType === 'route' || routeType === 'api-route' ? urlPath : `${urlPath}#${routeType}`,
+      urlPath:
+        routeType === 'route' || routeType === 'api-route' ? urlPath : `${urlPath}#${routeType}`,
       segment: parsed.segment,
       isDynamic: parsed.isDynamic,
       isCatchAll: parsed.isCatchAll,
@@ -273,13 +270,13 @@ function resolveParentLayout(segments: string[], routes: RawRoute[]): string | u
   for (let i = segments.length; i >= 0; i--) {
     const parentSegments = segments.slice(0, i);
     const layoutId = `app:${parentSegments.join('/')}:/layout.tsx`;
-    if (routes.some((r) => r.id.startsWith(`app:${parentSegments.join('/')}:`) && r.type === 'layout')) {
+    if (
+      routes.some((r) => r.id.startsWith(`app:${parentSegments.join('/')}:`) && r.type === 'layout')
+    ) {
       const layout = routes.find(
         (r) =>
-          r.type === 'layout' &&
-          r.id === `app:${parentSegments.join('/')}:/layout.tsx` ||
-          r.id.includes('layout') &&
-          r.filePath.includes(parentSegments.join(sep)),
+          (r.type === 'layout' && r.id === `app:${parentSegments.join('/')}:/layout.tsx`) ||
+          (r.id.includes('layout') && r.filePath.includes(parentSegments.join(sep))),
       );
       if (layout) return layout.id;
     }
@@ -451,7 +448,9 @@ export function createNextAppRouterPlugin(options: NextPluginOptions = {}): Fram
   };
 }
 
-function destinationToPath(dest: import('@route-intelligence/shared').NavigationDestination): string | undefined {
+function destinationToPath(
+  dest: import('@route-intelligence/shared').NavigationDestination,
+): string | undefined {
   switch (dest.kind) {
     case 'static':
       return dest.path;
