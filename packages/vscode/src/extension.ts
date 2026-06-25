@@ -1,7 +1,7 @@
-import * as vscode from 'vscode';
-import { createAnalyzer, exportJson, type RouteGraph } from '@route-intelligence/core';
+import { type RouteGraph, createAnalyzer, exportJson } from '@route-intelligence/core';
 import { NextPlugin } from '@route-intelligence/next';
 import type { SerializedGraph } from '@route-intelligence/shared';
+import * as vscode from 'vscode';
 
 let cachedGraph: SerializedGraph | null = null;
 const diagnosticCollection = vscode.languages.createDiagnosticCollection('route-intelligence');
@@ -18,14 +18,20 @@ async function analyzeWorkspace(): Promise<SerializedGraph | null> {
   });
 
   const result = await analyzer.analyze();
-  cachedGraph = JSON.parse(exportJson(result.graph as RouteGraph, workspaceRoot)) as SerializedGraph;
+  cachedGraph = JSON.parse(
+    exportJson(result.graph as RouteGraph, workspaceRoot),
+  ) as SerializedGraph;
 
   updateDiagnostics(result.diagnostics);
   return cachedGraph;
 }
 
 function updateDiagnostics(
-  diagnostics: Array<{ severity: string; message: string; loc?: { filePath: string; line: number; column: number } }>,
+  diagnostics: Array<{
+    severity: string;
+    message: string;
+    loc?: { filePath: string; line: number; column: number };
+  }>,
 ) {
   diagnosticCollection.clear();
   const byFile = new Map<string, vscode.Diagnostic[]>();
@@ -35,9 +41,16 @@ function updateDiagnostics(
     const diags = byFile.get(d.loc.filePath) ?? [];
     diags.push(
       new vscode.Diagnostic(
-        new vscode.Range(Math.max(0, d.loc.line - 1), d.loc.column, Math.max(0, d.loc.line - 1), d.loc.column + 1),
+        new vscode.Range(
+          Math.max(0, d.loc.line - 1),
+          d.loc.column,
+          Math.max(0, d.loc.line - 1),
+          d.loc.column + 1,
+        ),
         d.message,
-        d.severity === 'error' ? vscode.DiagnosticSeverity.Error : vscode.DiagnosticSeverity.Warning,
+        d.severity === 'error'
+          ? vscode.DiagnosticSeverity.Error
+          : vscode.DiagnosticSeverity.Warning,
       ),
     );
     byFile.set(d.loc.filePath, diags);
@@ -65,27 +78,46 @@ class RouteTreeProvider implements vscode.TreeDataProvider<RouteTreeItem> {
     if (!element) {
       return cachedGraph.nodes
         .filter((n) => n.attributes.type === 'route')
-        .map((n) => new RouteTreeItem(n.attributes.path, n.id, vscode.TreeItemCollapsibleState.Collapsed));
+        .map(
+          (n) =>
+            new RouteTreeItem(n.attributes.path, n.id, vscode.TreeItemCollapsibleState.Collapsed),
+        );
     }
 
-    const incoming = cachedGraph.edges.filter((e) => e.target === element.id && e.attributes.type === 'navigation');
-    const outgoing = cachedGraph.edges.filter((e) => e.source === element.id && e.attributes.type === 'navigation');
+    const incoming = cachedGraph.edges.filter(
+      (e) => e.target === element.id && e.attributes.type === 'navigation',
+    );
+    const outgoing = cachedGraph.edges.filter(
+      (e) => e.source === element.id && e.attributes.type === 'navigation',
+    );
 
     return [
       ...incoming.map((e) => {
         const source = cachedGraph!.nodes.find((n) => n.id === e.source);
-        return new RouteTreeItem(`← ${source?.attributes.path ?? e.source}`, e.source, vscode.TreeItemCollapsibleState.None);
+        return new RouteTreeItem(
+          `← ${source?.attributes.path ?? e.source}`,
+          e.source,
+          vscode.TreeItemCollapsibleState.None,
+        );
       }),
       ...outgoing.map((e) => {
         const target = cachedGraph!.nodes.find((n) => n.id === e.target);
-        return new RouteTreeItem(`→ ${target?.attributes.path ?? e.target}`, e.target, vscode.TreeItemCollapsibleState.None);
+        return new RouteTreeItem(
+          `→ ${target?.attributes.path ?? e.target}`,
+          e.target,
+          vscode.TreeItemCollapsibleState.None,
+        );
       }),
     ];
   }
 }
 
 class RouteTreeItem extends vscode.TreeItem {
-  constructor(label: string, public readonly id: string, collapsibleState: vscode.TreeItemCollapsibleState) {
+  constructor(
+    label: string,
+    public readonly id: string,
+    collapsibleState: vscode.TreeItemCollapsibleState,
+  ) {
     super(label, collapsibleState);
   }
 }
@@ -106,12 +138,16 @@ export function activate(context: vscode.ExtensionContext) {
           const path = hrefMatch[1];
           const node = cachedGraph.nodes.find((n) => n.attributes.path === path);
           if (node) {
-            return new vscode.Hover([
-              `**Route:** ${node.attributes.path}`,
-              `Type: ${node.attributes.type}`,
-              `File: ${node.attributes.filePath}`,
-              node.attributes.isDead ? '⚠ Dead route' : '',
-            ].filter(Boolean).join('\n\n'));
+            return new vscode.Hover(
+              [
+                `**Route:** ${node.attributes.path}`,
+                `Type: ${node.attributes.type}`,
+                `File: ${node.attributes.filePath}`,
+                node.attributes.isDead ? '⚠ Dead route' : '',
+              ]
+                .filter(Boolean)
+                .join('\n\n'),
+            );
           }
           return new vscode.Hover(`⚠ Unknown route: ${path}`);
         }
@@ -131,7 +167,10 @@ export function activate(context: vscode.ExtensionContext) {
 
         const node = cachedGraph.nodes.find((n) => n.attributes.path === hrefMatch[1]);
         if (node) {
-          return new vscode.Location(vscode.Uri.file(node.attributes.filePath), new vscode.Position(0, 0));
+          return new vscode.Location(
+            vscode.Uri.file(node.attributes.filePath),
+            new vscode.Position(0, 0),
+          );
         }
         return null;
       },
@@ -150,7 +189,12 @@ export function activate(context: vscode.ExtensionContext) {
       vscode.window.showInformationMessage('Route analysis complete');
     }),
     vscode.commands.registerCommand('route-intelligence.showGraph', () => {
-      const panel = vscode.window.createWebviewPanel('routeGraph', 'Route Graph', vscode.ViewColumn.One, { enableScripts: true });
+      const panel = vscode.window.createWebviewPanel(
+        'routeGraph',
+        'Route Graph',
+        vscode.ViewColumn.One,
+        { enableScripts: true },
+      );
       panel.webview.html = getWebviewContent();
     }),
     hoverProvider,
