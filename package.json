@@ -9,7 +9,7 @@
     "node": ">=22"
   },
   "scripts": {
-    "build": "node scripts/run-workspaces.mjs build",
+    "build": "node scripts/build-packages.mjs",
     "dev": "node scripts/run-package.mjs @route-intelligence/cli dev",
     "docs:dev": "next dev",
     "docs:build": "next build",
@@ -22,7 +22,7 @@
     "analyze": "node scripts/run-package.mjs @route-intelligence/cli build && node packages/cli/dist/cli.js analyze",
     "changeset": "changeset",
     "version-packages": "changeset version",
-    "release": "node scripts/run-workspaces.mjs build && changeset publish",
+    "release": "node scripts/build-packages.mjs && changeset publish",
     "postinstall": "node scripts/verify-workspaces.mjs"
   },
   "devDependencies": {
