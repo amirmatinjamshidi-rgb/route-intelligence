@@ -6,7 +6,11 @@ import { RouteVisualizer } from './App.js';
 async function main() {
   const response = await fetch('/graph.json');
   const graph = (await response.json()) as SerializedGraph;
-  const root = createRoot(document.getElementById('root')!);
+  const container = document.getElementById('root');
+  if (!container) {
+    throw new Error('Root element #root not found');
+  }
+  const root = createRoot(container);
   root.render(
     <StrictMode>
       <RouteVisualizer graph={graph} />

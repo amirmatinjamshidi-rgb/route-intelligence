@@ -75,8 +75,9 @@ class RouteTreeProvider implements vscode.TreeDataProvider<RouteTreeItem> {
 
   getChildren(element?: RouteTreeItem): RouteTreeItem[] {
     if (!cachedGraph) return [];
+    const graph = cachedGraph;
     if (!element) {
-      return cachedGraph.nodes
+      return graph.nodes
         .filter((n) => n.attributes.type === 'route')
         .map(
           (n) =>
@@ -84,16 +85,16 @@ class RouteTreeProvider implements vscode.TreeDataProvider<RouteTreeItem> {
         );
     }
 
-    const incoming = cachedGraph.edges.filter(
+    const incoming = graph.edges.filter(
       (e) => e.target === element.id && e.attributes.type === 'navigation',
     );
-    const outgoing = cachedGraph.edges.filter(
+    const outgoing = graph.edges.filter(
       (e) => e.source === element.id && e.attributes.type === 'navigation',
     );
 
     return [
       ...incoming.map((e) => {
-        const source = cachedGraph!.nodes.find((n) => n.id === e.source);
+        const source = graph.nodes.find((n) => n.id === e.source);
         return new RouteTreeItem(
           `← ${source?.attributes.path ?? e.source}`,
           e.source,
@@ -101,7 +102,7 @@ class RouteTreeProvider implements vscode.TreeDataProvider<RouteTreeItem> {
         );
       }),
       ...outgoing.map((e) => {
-        const target = cachedGraph!.nodes.find((n) => n.id === e.target);
+        const target = graph.nodes.find((n) => n.id === e.target);
         return new RouteTreeItem(
           `→ ${target?.attributes.path ?? e.target}`,
           e.target,
@@ -213,7 +214,7 @@ export function activate(context: vscode.ExtensionContext) {
 }
 
 function getWebviewContent(): string {
-  return `<!DOCTYPE html><html><body><h1>Route Graph</h1><p>Run route-intelligence graph for full visualization</p></body></html>`;
+  return '<!DOCTYPE html><html><body><h1>Route Graph</h1><p>Run route-intelligence graph for full visualization</p></body></html>';
 }
 
 export function deactivate() {

@@ -211,8 +211,8 @@ export function RouteVisualizer({ graph, layout = 'hierarchical' }: VisualizerPr
               <>
                 <h3>Conditions</h3>
                 <ul>
-                  {selected.attributes.conditions.map((c, i) => (
-                    <li key={i}>{c.expression}</li>
+                  {selected.attributes.conditions.map((c) => (
+                    <li key={c.expression}>{c.expression}</li>
                   ))}
                 </ul>
               </>
@@ -221,8 +221,11 @@ export function RouteVisualizer({ graph, layout = 'hierarchical' }: VisualizerPr
               <>
                 <h3>Diagnostics</h3>
                 <ul>
-                  {selected.attributes.diagnostics.map((d, i) => (
-                    <li key={i} style={{ color: d.severity === 'error' ? '#ef4444' : '#f59e0b' }}>
+                  {selected.attributes.diagnostics.map((d) => (
+                    <li
+                      key={`${d.ruleId}:${d.message}`}
+                      style={{ color: d.severity === 'error' ? '#ef4444' : '#f59e0b' }}
+                    >
                       [{d.ruleId}] {d.message}
                     </li>
                   ))}
