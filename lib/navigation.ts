@@ -18,39 +18,38 @@ export interface DocSection {
 
 export const docsNav: DocSection[] = [
   {
-    title: "Get Started",
+    title: 'Get Started',
     links: [
-      { title: "Introduction", href: "/docs" },
-      { title: "Installation", href: "/docs/installation" },
-      { title: "Quick Start", href: "/docs/quick-start" },
+      { title: 'Introduction', href: '/docs' },
+      { title: 'Installation', href: '/docs/installation' },
+      { title: 'Quick Start', href: '/docs/quick-start' },
     ],
   },
   {
-    title: "Core Concepts",
+    title: 'Core Concepts',
     links: [
-      { title: "The Route Graph", href: "/docs/concepts" },
-      { title: "Nodes & Edges", href: "/docs/nodes-and-edges" },
-      { title: "Diagnostics", href: "/docs/diagnostics" },
+      { title: 'The Route Graph', href: '/docs/concepts' },
+      { title: 'Nodes & Edges', href: '/docs/nodes-and-edges' },
+      { title: 'Diagnostics', href: '/docs/diagnostics' },
     ],
   },
   {
-    title: "Usage",
+    title: 'Usage',
     links: [
-      { title: "CLI Commands", href: "/docs/cli" },
-      { title: "Configuration", href: "/docs/configuration" },
-      { title: "Programmatic API", href: "/docs/api" },
+      { title: 'CLI Commands', href: '/docs/cli' },
+      { title: 'Configuration', href: '/docs/configuration' },
+      { title: 'Programmatic API', href: '/docs/api' },
     ],
   },
   {
-    title: "Ecosystem",
+    title: 'Ecosystem',
     links: [
-      { title: "Framework Plugins", href: "/docs/frameworks" },
-      { title: "Integrations", href: "/docs/integrations" },
-      { title: "Visualizing", href: "/docs/visualizing" },
+      { title: 'Framework Plugins', href: '/docs/frameworks' },
+      { title: 'Integrations', href: '/docs/integrations' },
+      { title: 'Visualizing', href: '/docs/visualizing' },
     ],
   },
 ];
-
 
 export const flatDocs: DocLink[] = docsNav.flatMap((section) => section.links);
 
@@ -66,4 +65,4 @@ export function getAdjacentDocs(pathname: string): {
   };
 }
 
-export const GITHUB_URL = "https://github.com/amirmatinjamshidi-rgb/route-intelligence";
+export const GITHUB_URL = 'https://github.com/amirmatinjamshidi-rgb/route-intelligence';
