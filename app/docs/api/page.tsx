@@ -1,9 +1,9 @@
-import type { Metadata } from "next";
-import { CodeBlock } from "@/components/docs/code-block";
-import { A, H2, InlineCode, P, Prose, Strong, Table } from "@/components/docs/content";
-import { DocPage } from "@/components/docs/doc-page";
+import { CodeBlock } from '@/components/docs/code-block';
+import { A, H2, InlineCode, P, Prose, Strong, Table } from '@/components/docs/content';
+import { DocPage } from '@/components/docs/doc-page';
+import type { Metadata } from 'next';
 
-export const metadata: Metadata = { title: "Programmatic API" };
+export const metadata: Metadata = { title: 'Programmatic API' };
 
 export default function ApiPage() {
   return (
@@ -15,8 +15,8 @@ export default function ApiPage() {
       <Prose>
         <H2 id="analyze">Running an analysis</H2>
         <P>
-          <InlineCode>createAnalyzer</InlineCode> takes a config and returns an analyzer. Call{" "}
-          <InlineCode>analyze()</InlineCode> for a one-shot run, or <InlineCode>watch()</InlineCode>{" "}
+          <InlineCode>createAnalyzer</InlineCode> takes a config and returns an analyzer. Call{' '}
+          <InlineCode>analyze()</InlineCode> for a one-shot run, or <InlineCode>watch()</InlineCode>{' '}
           for incremental updates.
         </P>
         <CodeBlock
@@ -36,11 +36,11 @@ console.log(result.diagnostics.length, 'diagnostics');`}
 
         <H2 id="result">The result object</H2>
         <Table
-          head={["Field", "Description"]}
+          head={['Field', 'Description']}
           rows={[
-            [<InlineCode key="g">graph</InlineCode>, "A live RouteGraph instance you can query"],
-            [<InlineCode key="m">metadata</InlineCode>, "Counts and scores (routes, layouts, …)"],
-            [<InlineCode key="d">diagnostics</InlineCode>, "Flat list of all findings"],
+            [<InlineCode key="g">graph</InlineCode>, 'A live RouteGraph instance you can query'],
+            [<InlineCode key="m">metadata</InlineCode>, 'Counts and scores (routes, layouts, …)'],
+            [<InlineCode key="d">diagnostics</InlineCode>, 'Flat list of all findings'],
           ]}
         />
 
@@ -97,22 +97,33 @@ const json = exportJson(graph, process.cwd());`}
           From <InlineCode>@route-intelligence/core</InlineCode>:
         </P>
         <Table
-          head={["Export", "Kind"]}
+          head={['Export', 'Kind']}
           rows={[
-            [<InlineCode key="ca">createAnalyzer, defineConfig</InlineCode>, "Entry points"],
-            [<InlineCode key="rg">RouteGraph</InlineCode>, "Graph class"],
+            [<InlineCode key="ca">createAnalyzer, defineConfig</InlineCode>, 'Entry points'],
+            [<InlineCode key="rg">RouteGraph</InlineCode>, 'Graph class'],
             [
-              <InlineCode key="al">findCycles, findDeadRoutes, findShortestPath, detectInfiniteRedirects, getMostConnected</InlineCode>,
-              "Algorithms",
+              <InlineCode key="al">
+                findCycles, findDeadRoutes, findShortestPath, detectInfiniteRedirects,
+                getMostConnected
+              </InlineCode>,
+              'Algorithms',
             ],
-            [<InlineCode key="ex">exportJson · Mermaid · PlantUML · Dot · Html · Markdown</InlineCode>, "Exporters"],
-            [<InlineCode key="in">IncrementalCache, Invalidator, computeGraphPatch</InlineCode>, "Incremental tooling"],
+            [
+              <InlineCode key="ex">
+                exportJson · Mermaid · PlantUML · Dot · Html · Markdown
+              </InlineCode>,
+              'Exporters',
+            ],
+            [
+              <InlineCode key="in">IncrementalCache, Invalidator, computeGraphPatch</InlineCode>,
+              'Incremental tooling',
+            ],
           ]}
         />
         <P>
-          Types like <InlineCode>SerializedGraph</InlineCode>, <InlineCode>NodeAttributes</InlineCode>,
-          and <InlineCode>FrameworkPlugin</InlineCode> live in{" "}
-          <A href="/docs/frameworks">@route-intelligence/shared</A>.
+          Types like <InlineCode>SerializedGraph</InlineCode>,{' '}
+          <InlineCode>NodeAttributes</InlineCode>, and <InlineCode>FrameworkPlugin</InlineCode> live
+          in <A href="/docs/frameworks">@route-intelligence/shared</A>.
         </P>
         <P>
           <Strong>Note:</Strong> the analyzer never executes your application code — it reads source

@@ -1,10 +1,10 @@
-import type { Metadata } from "next";
-import { Callout } from "@/components/docs/callout";
-import { CodeBlock } from "@/components/docs/code-block";
-import { A, H2, InlineCode, LI, OL, P, Prose, Strong } from "@/components/docs/content";
-import { DocPage } from "@/components/docs/doc-page";
+import { Callout } from '@/components/docs/callout';
+import { CodeBlock } from '@/components/docs/code-block';
+import { A, H2, InlineCode, LI, OL, P, Prose, Strong } from '@/components/docs/content';
+import { DocPage } from '@/components/docs/doc-page';
+import type { Metadata } from 'next';
 
-export const metadata: Metadata = { title: "Quick Start" };
+export const metadata: Metadata = { title: 'Quick Start' };
 
 export default function QuickStartPage() {
   return (
@@ -16,9 +16,10 @@ export default function QuickStartPage() {
       <Prose>
         <H2 id="1-analyze">1. Analyze your routes</H2>
         <P>
-          Run <InlineCode>analyze</InlineCode> from your project root. It scans <InlineCode>app/</InlineCode>,{" "}
-          <InlineCode>pages/</InlineCode>, and <InlineCode>middleware.ts</InlineCode>, then writes a
-          graph to <InlineCode>ri-output/graph.json</InlineCode>.
+          Run <InlineCode>analyze</InlineCode> from your project root. It scans{' '}
+          <InlineCode>app/</InlineCode>, <InlineCode>pages/</InlineCode>, and{' '}
+          <InlineCode>middleware.ts</InlineCode>, then writes a graph to{' '}
+          <InlineCode>ri-output/graph.json</InlineCode>.
         </P>
         <CodeBlock language="bash" code={`npx route-intelligence analyze --root .`} />
         <P>You should see a summary like:</P>
@@ -51,7 +52,10 @@ Written to ri-output/graph.json`}
 
         <H2 id="4-export">4. Export for docs or diagrams</H2>
         <P>Generate a Mermaid diagram you can paste into a README or wiki:</P>
-        <CodeBlock language="bash" code={`npx route-intelligence analyze --format mermaid --out ri-output`} />
+        <CodeBlock
+          language="bash"
+          code={`npx route-intelligence analyze --format mermaid --out ri-output`}
+        />
 
         <H2 id="what-next">What next?</H2>
         <OL>
@@ -68,8 +72,8 @@ Written to ri-output/graph.json`}
           </LI>
         </OL>
         <P>
-          <Strong>Tip:</Strong> add <InlineCode>analyze</InlineCode> to a <InlineCode>predev</InlineCode>{" "}
-          or pre-commit step so your graph stays fresh.
+          <Strong>Tip:</Strong> add <InlineCode>analyze</InlineCode> to a{' '}
+          <InlineCode>predev</InlineCode> or pre-commit step so your graph stays fresh.
         </P>
       </Prose>
     </DocPage>

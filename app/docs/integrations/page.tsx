@@ -1,10 +1,10 @@
-import type { Metadata } from "next";
-import { Callout } from "@/components/docs/callout";
-import { CodeBlock } from "@/components/docs/code-block";
-import { A, H2, H3, InlineCode, LI, P, Prose, Strong, Table, UL } from "@/components/docs/content";
-import { DocPage } from "@/components/docs/doc-page";
+import { Callout } from '@/components/docs/callout';
+import { CodeBlock } from '@/components/docs/code-block';
+import { A, H2, H3, InlineCode, LI, P, Prose, Strong, Table, UL } from '@/components/docs/content';
+import { DocPage } from '@/components/docs/doc-page';
+import type { Metadata } from 'next';
 
-export const metadata: Metadata = { title: "Integrations" };
+export const metadata: Metadata = { title: 'Integrations' };
 
 export default function IntegrationsPage() {
   return (
@@ -16,8 +16,8 @@ export default function IntegrationsPage() {
       <Prose>
         <H2 id="eslint">ESLint plugin</H2>
         <P>
-          <InlineCode>eslint-plugin-route-intelligence</InlineCode> loads{" "}
-          <InlineCode>ri-output/graph.json</InlineCode> and lints your code against it. Run{" "}
+          <InlineCode>eslint-plugin-route-intelligence</InlineCode> loads{' '}
+          <InlineCode>ri-output/graph.json</InlineCode> and lints your code against it. Run{' '}
           <InlineCode>analyze</InlineCode> first so the graph exists.
         </P>
         <CodeBlock
@@ -39,13 +39,28 @@ export default [
 ];`}
         />
         <Table
-          head={["Rule", "Catches"]}
+          head={['Rule', 'Catches']}
           rows={[
-            [<InlineCode key="b">no-broken-route</InlineCode>, "<Link href> pointing at a nonexistent route"],
-            [<InlineCode key="i">no-invalid-redirect</InlineCode>, "redirect()/permanentRedirect() to a missing target"],
-            [<InlineCode key="d">no-dead-page</InlineCode>, "Editing a file that is an unreachable route"],
-            [<InlineCode key="p">prefer-route-constants</InlineCode>, "Inline path string literals in hrefs"],
-            [<InlineCode key="c">detect-route-cycles</InlineCode>, "Navigation that closes a cycle"],
+            [
+              <InlineCode key="b">no-broken-route</InlineCode>,
+              '<Link href> pointing at a nonexistent route',
+            ],
+            [
+              <InlineCode key="i">no-invalid-redirect</InlineCode>,
+              'redirect()/permanentRedirect() to a missing target',
+            ],
+            [
+              <InlineCode key="d">no-dead-page</InlineCode>,
+              'Editing a file that is an unreachable route',
+            ],
+            [
+              <InlineCode key="p">prefer-route-constants</InlineCode>,
+              'Inline path string literals in hrefs',
+            ],
+            [
+              <InlineCode key="c">detect-route-cycles</InlineCode>,
+              'Navigation that closes a cycle',
+            ],
           ]}
         />
 
@@ -115,8 +130,8 @@ const linkSpec = generateBrokenLinkTests(graph);
 
         <H3 id="more">More</H3>
         <P>
-          Want diagrams instead of tests? Head to <A href="/docs/visualizing">Visualizing</A> to turn
-          the graph into Mermaid, PlantUML, DOT, or an interactive browser view.
+          Want diagrams instead of tests? Head to <A href="/docs/visualizing">Visualizing</A> to
+          turn the graph into Mermaid, PlantUML, DOT, or an interactive browser view.
         </P>
       </Prose>
     </DocPage>
