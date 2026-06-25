@@ -16,6 +16,6 @@ const sharedDist = join(rootDir, 'packages', 'shared', 'dist', 'index.js');
 
 if (!existsSync(sharedDist)) {
   console.log(
-    '[route-intelligence] Workspace packages not built yet. Run your package manager\'s install, then: npm run build',
+    "[route-intelligence] Workspace packages not built yet. Run your package manager's install, then: npm run build",
   );
 }
