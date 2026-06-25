@@ -1,9 +1,10 @@
 #!/usr/bin/env node
 import { mkdirSync, writeFileSync } from 'node:fs';
-import { join, resolve } from 'node:path';
+import { existsSync, readFileSync } from 'node:fs';
 import { createServer } from 'node:http';
-import { readFileSync, existsSync } from 'node:fs';
+import { join, resolve } from 'node:path';
 import {
+  type RouteGraph,
   createAnalyzer,
   exportDot,
   exportHtml,
@@ -11,7 +12,6 @@ import {
   exportMarkdown,
   exportMermaid,
   exportPlantUML,
-  type RouteGraph,
 } from '@route-intelligence/core';
 import { NextPlugin } from '@route-intelligence/next';
 import type { AnalyzerConfig } from '@route-intelligence/shared';
@@ -55,7 +55,11 @@ program
   .command('analyze')
   .description('Analyze project routing')
   .option('-r, --root <path>', 'Project root', '.')
-  .option('-f, --format <format>', 'Output format (json|mermaid|plantuml|dot|html|markdown)', 'json')
+  .option(
+    '-f, --format <format>',
+    'Output format (json|mermaid|plantuml|dot|html|markdown)',
+    'json',
+  )
   .option('-o, --out <path>', 'Output directory', 'ri-output')
   .action(async (opts: { root: string; format: string; out: string }) => {
     const result = await runAnalysis(opts.root);
