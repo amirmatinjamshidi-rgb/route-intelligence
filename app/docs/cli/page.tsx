@@ -32,7 +32,7 @@ node packages/cli/dist/cli.js <command> [options]`}
         <P>Analyze routing and write the graph to disk in the format of your choice.</P>
         <CodeBlock
           language="bash"
-          code={`route-intelligence analyze --root . --format json --out ri-output`}
+          code="route-intelligence analyze --root . --format json --out ri-output"
         />
         <Table
           head={['Option', 'Default', 'Description']}
@@ -49,7 +49,7 @@ node packages/cli/dist/cli.js <command> [options]`}
 
         <H2 id="graph">graph</H2>
         <P>Analyze, then start a local server with an interactive graph browser.</P>
-        <CodeBlock language="bash" code={`route-intelligence graph --port 3001 --host localhost`} />
+        <CodeBlock language="bash" code="route-intelligence graph --port 3001 --host localhost" />
         <Table
           head={['Option', 'Default', 'Description']}
           rows={[
@@ -63,7 +63,7 @@ node packages/cli/dist/cli.js <command> [options]`}
         <P>Run every diagnostic rule and report problems. Ideal for CI.</P>
         <CodeBlock
           language="bash"
-          code={`route-intelligence doctor --root . --strict --format text`}
+          code="route-intelligence doctor --root . --strict --format text"
         />
         <Table
           head={['Option', 'Default', 'Description']}
@@ -82,7 +82,7 @@ node packages/cli/dist/cli.js <command> [options]`}
         <P>Generate human-readable route documentation in Markdown or HTML.</P>
         <CodeBlock
           language="bash"
-          code={`route-intelligence docs --format markdown --out docs/routes`}
+          code="route-intelligence docs --format markdown --out docs/routes"
         />
         <Table
           head={['Option', 'Default', 'Description']}
@@ -97,7 +97,7 @@ node packages/cli/dist/cli.js <command> [options]`}
         <P>Export the raw graph for use in other tools.</P>
         <CodeBlock
           language="bash"
-          code={`route-intelligence export --format mermaid --out ri-export`}
+          code="route-intelligence export --format mermaid --out ri-export"
         />
         <P>
           <Strong>Formats:</Strong> <InlineCode>json</InlineCode>, <InlineCode>mermaid</InlineCode>,{' '}
@@ -110,7 +110,7 @@ node packages/cli/dist/cli.js <command> [options]`}
           Watch the project and incrementally update the graph as files change, printing a patch
           summary on every update. Press <InlineCode>Ctrl+C</InlineCode> to stop.
         </P>
-        <CodeBlock language="bash" code={`route-intelligence watch --root .`} />
+        <CodeBlock language="bash" code="route-intelligence watch --root ." />
         <CodeBlock
           language="text"
           code={`Watching for route changes...

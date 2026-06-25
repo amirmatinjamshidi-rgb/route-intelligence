@@ -21,7 +21,7 @@ export default function QuickStartPage() {
           <InlineCode>middleware.ts</InlineCode>, then writes a graph to{' '}
           <InlineCode>ri-output/graph.json</InlineCode>.
         </P>
-        <CodeBlock language="bash" code={`npx route-intelligence analyze --root .`} />
+        <CodeBlock language="bash" code="npx route-intelligence analyze --root ." />
         <P>You should see a summary like:</P>
         <CodeBlock
           language="text"
@@ -34,7 +34,7 @@ Written to ri-output/graph.json`}
           The <InlineCode>graph</InlineCode> command analyzes and launches a local browser UI where
           you can search routes, toggle overlays, and inspect nodes.
         </P>
-        <CodeBlock language="bash" code={`npx route-intelligence graph --port 3001`} />
+        <CodeBlock language="bash" code="npx route-intelligence graph --port 3001" />
         <P>
           Open <A href="http://localhost:3001">http://localhost:3001</A> to explore the graph.
         </P>
@@ -44,7 +44,7 @@ Written to ri-output/graph.json`}
           <InlineCode>doctor</InlineCode> runs every static analysis rule and prints diagnostics —
           dead routes, broken links, redirect cycles, and more.
         </P>
-        <CodeBlock language="bash" code={`npx route-intelligence doctor --root . --strict`} />
+        <CodeBlock language="bash" code="npx route-intelligence doctor --root . --strict" />
         <Callout kind="tip" title="CI-friendly">
           Pass <InlineCode>--strict</InlineCode> to exit with a non-zero code on warnings, so a
           broken link can fail your pipeline.
@@ -54,7 +54,7 @@ Written to ri-output/graph.json`}
         <P>Generate a Mermaid diagram you can paste into a README or wiki:</P>
         <CodeBlock
           language="bash"
-          code={`npx route-intelligence analyze --format mermaid --out ri-output`}
+          code="npx route-intelligence analyze --format mermaid --out ri-output"
         />
 
         <H2 id="what-next">What next?</H2>

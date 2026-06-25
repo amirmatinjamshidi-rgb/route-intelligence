@@ -31,7 +31,7 @@ export default function VisualizingPage() {
         <P>The quickest path to a diagram you can drop into a Markdown file:</P>
         <CodeBlock
           language="bash"
-          code={`route-intelligence analyze --format mermaid --out ri-output`}
+          code="route-intelligence analyze --format mermaid --out ri-output"
         />
         <P>
           Paste the contents of <InlineCode>ri-output/graph.mermaid</InlineCode> into any
@@ -58,7 +58,7 @@ export default function VisualizingPage() {
             <Strong>Layouts</Strong> — hierarchical, force-directed, and radial.
           </LI>
         </UL>
-        <CodeBlock language="bash" code={`route-intelligence graph --port 3001`} />
+        <CodeBlock language="bash" code={'route-intelligence graph --port 3001'} />
         <Callout kind="note" title="Powered by the same JSON">
           The visualizer just renders <InlineCode>ri-output/graph.json</InlineCode>. You can host
           that file anywhere and point the <InlineCode>@route-intelligence/visualizer</InlineCode>{' '}
@@ -72,7 +72,7 @@ export default function VisualizingPage() {
         </P>
         <CodeBlock
           language="bash"
-          code={`route-intelligence docs --format markdown --out docs/routes`}
+          code="route-intelligence docs --format markdown --out docs/routes"
         />
         <P>
           <Strong>That's the tour.</Strong> Revisit the <A href="/docs/cli">CLI reference</A> for

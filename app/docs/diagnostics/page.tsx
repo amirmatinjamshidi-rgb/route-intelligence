@@ -69,7 +69,7 @@ export default function DiagnosticsPage() {
         <H2 id="severity">Severities</H2>
         <P>
           Every diagnostic is an <InlineCode>error</InlineCode>, <InlineCode>warning</InlineCode>,
-          or <InlineCode>info</InlineCode>. Errors always fail <InlineCode>doctor</InlineCode>;
+          or <InlineCode>info</InlineCode>. Errors always fail <InlineCode>doctor</InlineCode>
           warnings fail only when you pass <InlineCode>--strict</InlineCode>.
         </P>
 

@@ -28,15 +28,15 @@ export default function InstallationPage() {
         <P>The CLI is the fastest way to try Route Intelligence. Install it as a dev dependency:</P>
         <CodeBlock
           language="npm"
-          code={`npm install -D @route-intelligence/cli @route-intelligence/next`}
+          code="npm install -D @route-intelligence/cli @route-intelligence/next"
         />
         <CodeBlock
           language="yarn"
-          code={`yarn add -D @route-intelligence/cli @route-intelligence/next`}
+          code="yarn add -D @route-intelligence/cli @route-intelligence/next"
         />
         <CodeBlock
           language="bun"
-          code={`bun add -d @route-intelligence/cli @route-intelligence/next`}
+          code="bun add -d @route-intelligence/cli @route-intelligence/next"
         />
 
         <Callout kind="tip" title="Pick one package manager">
