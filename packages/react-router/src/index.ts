@@ -1,6 +1,5 @@
 import { existsSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
-import fg from 'fast-glob';
 import type {
   AnalysisContext,
   Diagnostic,
@@ -12,6 +11,7 @@ import type {
   RouteGraphLike,
   SemanticFile,
 } from '@route-intelligence/shared';
+import fg from 'fast-glob';
 
 export interface ReactRouterPluginOptions {
   routesDir?: string;
@@ -60,10 +60,11 @@ export function ReactRouterPlugin(options: ReactRouterPluginOptions = {}): Frame
 
       for (const filePath of files) {
         const rel = filePath.replace(join(ctx.root, opts.routesDir), '').replace(/\\/g, '/');
-        const urlPath = rel
-          .replace(/\.(tsx|jsx)$/, '')
-          .replace(/\/index$/, '')
-          .replace(/^\//, '') || '/';
+        const urlPath =
+          rel
+            .replace(/\.(tsx|jsx)$/, '')
+            .replace(/\/index$/, '')
+            .replace(/^\//, '') || '/';
 
         yield {
           id: `react-router:${urlPath}`,
@@ -115,7 +116,13 @@ export function ReactRouterPlugin(options: ReactRouterPluginOptions = {}): Frame
         }
       }
 
-      return { filePath: file.path, edges, conditions: [], tags: ['react-router'], diagnostics: [] };
+      return {
+        filePath: file.path,
+        edges,
+        conditions: [],
+        tags: ['react-router'],
+        diagnostics: [],
+      };
     },
 
     async enrichGraph(_graph: RouteGraphLike, _ctx: ProjectContext): Promise<void> {},
