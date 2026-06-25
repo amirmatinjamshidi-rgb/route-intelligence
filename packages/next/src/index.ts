@@ -591,7 +591,8 @@ export function createNextPagesRouterPlugin(options: NextPluginOptions = {}): Fr
     },
 
     async analyzeFile(file: SemanticFile, ctx: AnalysisContext): Promise<FileAnalysisResult> {
-      return createNextAppRouterPlugin(opts).analyzeFile!(file, ctx);
+      const appPlugin = createNextAppRouterPlugin(opts);
+      return appPlugin.analyzeFile(file, ctx);
     },
 
     async enrichGraph(graph: RouteGraphLike, ctx: ProjectContext): Promise<void> {

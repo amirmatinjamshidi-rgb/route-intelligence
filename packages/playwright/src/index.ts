@@ -33,8 +33,8 @@ export function generateNavigationTests(
     lines.push(
       `test('route ${route.attributes.path} is accessible', async ({ page }) => {`,
       `  const response = await page.goto(BASE_URL + '${route.attributes.path === '/' ? '' : route.attributes.path}');`,
-      `  expect(response?.status()).toBeLessThan(400);`,
-      `});`,
+      '  expect(response?.status()).toBeLessThan(400);',
+      '});',
       '',
     );
   }
@@ -49,7 +49,7 @@ export function generateNavigationTests(
       `test('navigation ${source.attributes.path} -> ${target.attributes.path}', async ({ page }) => {`,
       `  await page.goto(BASE_URL + '${source.attributes.path === '/' ? '' : source.attributes.path}');`,
       `  // Navigation via ${edge.attributes.source}`,
-      `});`,
+      '});',
       '',
     );
   }
@@ -79,7 +79,7 @@ export function generateBrokenLinkTests(graph: SerializedGraph): string {
   for (const edge of brokenEdges) {
     lines.push(
       `  test('broken link from ${edge.source} to ${edge.target}', async () => {`,
-      `    expect(true).toBe(false); // Broken link detected`,
+      '    expect(true).toBe(false); // Broken link detected',
       '  });',
     );
   }

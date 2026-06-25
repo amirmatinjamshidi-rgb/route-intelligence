@@ -76,7 +76,7 @@ export class StaticAnalysisStage implements PipelineStage {
         diags.push({
           ruleId: 'broken-link',
           severity: 'error',
-          message: `Navigation target does not resolve to a known route`,
+          message: 'Navigation target does not resolve to a known route',
           edgeId: edge.id,
           loc: attrs.loc,
         });
