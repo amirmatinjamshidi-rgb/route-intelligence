@@ -1,16 +1,16 @@
 import {
   Background,
   Controls,
+  type Edge,
   MiniMap,
+  type Node,
   ReactFlow,
   useEdgesState,
   useNodesState,
-  type Edge,
-  type Node,
 } from '@xyflow/react';
 import '@xyflow/react/dist/style.css';
-import { useCallback, useMemo, useState } from 'react';
 import type { SerializedGraph } from '@route-intelligence/shared';
+import { useCallback, useMemo, useState } from 'react';
 
 export type LayoutType = 'hierarchical' | 'force' | 'radial' | 'flow';
 
@@ -73,7 +73,10 @@ function graphToFlowNodes(graph: SerializedGraph, filters: OverlayFilters, searc
 function graphToFlowEdges(graph: SerializedGraph, filters: OverlayFilters): Edge[] {
   return graph.edges
     .filter((e) => {
-      if (!filters.showRedirects && (e.attributes.type === 'redirect' || e.attributes.type === 'rewrite')) {
+      if (
+        !filters.showRedirects &&
+        (e.attributes.type === 'redirect' || e.attributes.type === 'rewrite')
+      ) {
         return false;
       }
       return true;
@@ -127,28 +130,43 @@ export function RouteVisualizer({ graph, layout = 'hierarchical' }: VisualizerPr
           placeholder="Search routes..."
           value={search}
           onChange={(e) => setSearch(e.target.value)}
-          style={{ flex: 1, minWidth: 200, padding: '0.5rem', background: '#1a1a1a', border: '1px solid #333', color: '#fff', borderRadius: 4 }}
+          style={{
+            flex: 1,
+            minWidth: 200,
+            padding: '0.5rem',
+            background: '#1a1a1a',
+            border: '1px solid #333',
+            color: '#fff',
+            borderRadius: 4,
+          }}
         />
         <select
           value={layout}
           onChange={() => {}}
-          style={{ padding: '0.5rem', background: '#1a1a1a', color: '#fff', border: '1px solid #333' }}
+          style={{
+            padding: '0.5rem',
+            background: '#1a1a1a',
+            color: '#fff',
+            border: '1px solid #333',
+          }}
         >
           <option value="hierarchical">Hierarchical</option>
           <option value="force">Force</option>
           <option value="radial">Radial</option>
           <option value="flow">Flow Chart</option>
         </select>
-        {(['showDead', 'showApi', 'showDynamic', 'showMiddleware', 'showRedirects'] as const).map((key) => (
-          <label key={key} style={{ fontSize: '0.875rem' }}>
-            <input
-              type="checkbox"
-              checked={filters[key]}
-              onChange={(e) => setFilters((f) => ({ ...f, [key]: e.target.checked }))}
-            />{' '}
-            {key.replace('show', '')}
-          </label>
-        ))}
+        {(['showDead', 'showApi', 'showDynamic', 'showMiddleware', 'showRedirects'] as const).map(
+          (key) => (
+            <label key={key} style={{ fontSize: '0.875rem' }}>
+              <input
+                type="checkbox"
+                checked={filters[key]}
+                onChange={(e) => setFilters((f) => ({ ...f, [key]: e.target.checked }))}
+              />{' '}
+              {key.replace('show', '')}
+            </label>
+          ),
+        )}
       </header>
       <div style={{ flex: 1, display: 'flex' }}>
         <div style={{ flex: 1 }}>
@@ -176,10 +194,18 @@ export function RouteVisualizer({ graph, layout = 'hierarchical' }: VisualizerPr
             }}
           >
             <h2 style={{ marginTop: 0 }}>{selected.attributes.path}</h2>
-            <p><strong>Type:</strong> {selected.attributes.type}</p>
-            <p><strong>File:</strong> {selected.attributes.filePath}</p>
-            <p><strong>Depth:</strong> {selected.attributes.depth}</p>
-            <p><strong>Runtime:</strong> {selected.attributes.runtime}</p>
+            <p>
+              <strong>Type:</strong> {selected.attributes.type}
+            </p>
+            <p>
+              <strong>File:</strong> {selected.attributes.filePath}
+            </p>
+            <p>
+              <strong>Depth:</strong> {selected.attributes.depth}
+            </p>
+            <p>
+              <strong>Runtime:</strong> {selected.attributes.runtime}
+            </p>
             {selected.attributes.isDead && <p style={{ color: '#ef4444' }}>Dead route</p>}
             {selected.attributes.conditions.length > 0 && (
               <>
