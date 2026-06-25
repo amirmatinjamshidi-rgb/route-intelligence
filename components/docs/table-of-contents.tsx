@@ -34,7 +34,7 @@ export function TableOfContents() {
     );
     for (const node of nodes) observer.observe(node);
     return () => observer.disconnect();
-  }, [pathname]);
+  }, []);
 
   if (headings.length === 0) return null;
 
