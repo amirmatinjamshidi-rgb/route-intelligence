@@ -1,5 +1,5 @@
-import { describe, it, expect } from 'vitest';
-import { createDefaultNodeAttributes, createDefaultEdgeAttributes } from '../src/graph.types.js';
+import { describe, expect, it } from 'vitest';
+import { createDefaultEdgeAttributes, createDefaultNodeAttributes } from '../src/graph.types.js';
 
 describe('shared types', () => {
   it('creates default node attributes', () => {

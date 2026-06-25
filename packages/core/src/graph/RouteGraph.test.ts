@@ -1,6 +1,9 @@
-import { describe, it, expect } from 'vitest';
+import {
+  createDefaultEdgeAttributes,
+  createDefaultNodeAttributes,
+} from '@route-intelligence/shared';
+import { describe, expect, it } from 'vitest';
 import { RouteGraph } from './RouteGraph.js';
-import { createDefaultNodeAttributes, createDefaultEdgeAttributes } from '@route-intelligence/shared';
 
 describe('RouteGraph', () => {
   it('adds nodes and edges', () => {
@@ -11,7 +14,11 @@ describe('RouteGraph', () => {
     );
     graph.addNode(
       'b',
-      createDefaultNodeAttributes({ type: 'route', path: '/about', filePath: '/app/about/page.tsx' }),
+      createDefaultNodeAttributes({
+        type: 'route',
+        path: '/about',
+        filePath: '/app/about/page.tsx',
+      }),
     );
     graph.addEdge(
       'e1',
