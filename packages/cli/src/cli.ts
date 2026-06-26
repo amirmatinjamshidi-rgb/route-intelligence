@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 import { mkdirSync, writeFileSync } from 'node:fs';
-import { existsSync, readFileSync } from 'node:fs';
+// import { existsSync, readFileSync } from 'node:fs';
 import { createServer } from 'node:http';
 import { join, resolve } from 'node:path';
 import {
