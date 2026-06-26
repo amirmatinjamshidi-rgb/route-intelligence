@@ -26,12 +26,6 @@
       },
       "suspicious": {
         "noExplicitAny": "off"
-      },
-      "suspicious": {
-        "noExplicitAny": "off"
-      },
-      "suspicious": {
-        "noExplicitAny": "off"
       }
     }
   },
