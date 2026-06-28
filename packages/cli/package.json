@@ -4,8 +4,8 @@
   "description": "CLI for Route Intelligence",
   "type": "module",
   "bin": {
-    "route-intelligence": "./dist/cli.js",
-    "ri": "./dist/cli.js"
+    "route-intelligence": "./bin/route-intelligence.mjs",
+    "ri": "./bin/route-intelligence.mjs"
   },
   "exports": {
     ".": {
@@ -14,7 +14,7 @@
       "import": "./dist/cli.js"
     }
   },
-  "files": ["dist"],
+  "files": ["dist", "bin"],
   "scripts": {
     "build": "tsup src/cli.ts --format esm --dts --clean",
     "dev": "tsup src/cli.ts --format esm --dts --watch",
