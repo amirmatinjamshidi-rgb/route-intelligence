@@ -18,7 +18,7 @@ function anchor(id: string) {
     <a
       href={`#${id}`}
       aria-label="Link to this section"
-      className="ml-2 text-ink-faint opacity-0 transition group-hover:opacity-100"
+      className="ms-2 text-ink-faint opacity-0 transition group-hover:opacity-100"
     >
       #
     </a>
@@ -44,17 +44,17 @@ export function H3({ id, children }: { id: string; children: ReactNode }) {
 }
 
 export function UL({ children }: { children: ReactNode }) {
-  return <ul className="flex list-disc flex-col gap-2 pl-6 marker:text-ink-faint">{children}</ul>;
+  return <ul className="flex list-disc flex-col gap-2 ps-6 marker:text-ink-faint">{children}</ul>;
 }
 
 export function OL({ children }: { children: ReactNode }) {
   return (
-    <ol className="flex list-decimal flex-col gap-2 pl-6 marker:text-ink-faint">{children}</ol>
+    <ol className="flex list-decimal flex-col gap-2 ps-6 marker:text-ink-faint">{children}</ol>
   );
 }
 
 export function LI({ children }: { children: ReactNode }) {
-  return <li className="pl-1">{children}</li>;
+  return <li className="ps-1">{children}</li>;
 }
 
 export function InlineCode({ children }: { children: ReactNode }) {
@@ -90,7 +90,7 @@ export function Strong({ children }: { children: ReactNode }) {
 export function Table({ head, rows }: { head: string[]; rows: ReactNode[][] }) {
   return (
     <div className="overflow-x-auto rounded-xl border border-line">
-      <table className="w-full border-collapse text-left text-sm">
+      <table className="w-full border-collapse text-start text-sm">
         <thead>
           <tr className="bg-surface">
             {head.map((cell) => (

@@ -1,14 +1,19 @@
 'use client';
 
-import { docsNav } from '@/lib/navigation';
+import { useLocale } from '@/components/locale-provider';
+import { getDocsNav } from '@/lib/i18n/navigation';
+import { getUi } from '@/lib/i18n/ui';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
 export function Sidebar() {
   const pathname = usePathname();
+  const locale = useLocale();
+  const ui = getUi(locale);
+  const docsNav = getDocsNav(locale);
 
   return (
-    <nav className="flex flex-col gap-7" aria-label="Documentation">
+    <nav className="flex flex-col gap-7" aria-label={ui.docNavLabel}>
       {docsNav.map((section) => (
         <div key={section.title} className="flex flex-col gap-1.5">
           <p className="px-3 text-xs font-bold uppercase tracking-wider text-ink-faint">

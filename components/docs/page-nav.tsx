@@ -1,12 +1,16 @@
 'use client';
 
-import { getAdjacentDocs } from '@/lib/navigation';
+import { useLocale } from '@/components/locale-provider';
+import { getAdjacentDocs } from '@/lib/i18n/navigation';
+import { getUi } from '@/lib/i18n/ui';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
 export function PageNav() {
   const pathname = usePathname();
-  const { prev, next } = getAdjacentDocs(pathname);
+  const locale = useLocale();
+  const ui = getUi(locale);
+  const { prev, next } = getAdjacentDocs(pathname, locale);
 
   if (!prev && !next) return null;
 
@@ -17,8 +21,10 @@ export function PageNav() {
           href={prev.href}
           className="flex flex-col rounded-xl border border-line p-4 transition hover:border-brand"
         >
-          <span className="text-xs text-ink-faint">Previous</span>
-          <span className="font-semibold text-brand">← {prev.title}</span>
+          <span className="text-xs text-ink-faint">{ui.previous}</span>
+          <span className="font-semibold text-brand">
+            <span className="inline-block rtl:rotate-180">←</span> {prev.title}
+          </span>
         </Link>
       ) : (
         <span />
@@ -26,10 +32,12 @@ export function PageNav() {
       {next ? (
         <Link
           href={next.href}
-          className="flex flex-col rounded-xl border border-line p-4 text-right transition hover:border-brand sm:items-end"
+          className="flex flex-col rounded-xl border border-line p-4 text-end transition hover:border-brand sm:items-end"
         >
-          <span className="text-xs text-ink-faint">Next</span>
-          <span className="font-semibold text-brand">{next.title} →</span>
+          <span className="text-xs text-ink-faint">{ui.next}</span>
+          <span className="font-semibold text-brand">
+            {next.title} <span className="inline-block rtl:rotate-180">→</span>
+          </span>
         </Link>
       ) : (
         <span />
