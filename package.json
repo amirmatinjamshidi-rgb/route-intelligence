@@ -20,7 +20,7 @@
     "lint": "biome check .",
     "lint:fix": "biome check --write .",
     "format": "biome format --write .",
-    "analyze": "node scripts/run-package.mjs @route-intelligence/cli build && node packages/cli/dist/cli.js analyze",
+    "analyze": "node packages/cli/bin/route-intelligence.mjs analyze",
     "changeset": "changeset",
     "version-packages": "changeset version",
     "release": "node scripts/build-packages.mjs && changeset publish",
@@ -29,6 +29,7 @@
   "devDependencies": {
     "@biomejs/biome": "^1.9.4",
     "@changesets/cli": "^2.31.0",
+    "@route-intelligence/cli": "*",
     "@route-intelligence/tsconfig": "*",
     "@tailwindcss/postcss": "^4.3.1",
     "tailwindcss": "^4.3.1",
