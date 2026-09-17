@@ -35,7 +35,7 @@ export function MobileNav({ locale }: { locale: Locale }) {
             onClick={() => setOpen(false)}
             className="absolute inset-0 bg-black/40"
           />
-          <div className="scroll-rail absolute start-0 top-0 h-full w-72 overflow-y-auto bg-bg p-6 shadow-xl">
+          <div className="scroll-rail absolute start-0 top-0 h-full w-72 overflow-y-auto border-e border-line bg-bg p-6 shadow-xl">
             <div className="mb-6 flex justify-end">
               <button
                 type="button"

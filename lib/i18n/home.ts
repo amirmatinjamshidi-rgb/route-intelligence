@@ -22,15 +22,15 @@ const homeContent: Record<Locale, HomeContent> = {
       },
       {
         title: 'Framework-agnostic core',
-        body: 'Next.js, React Router, and TanStack Router support via small, composable plugins.',
+        body: 'Next.js, React Router, and TanStack Router via small plugins. CLI ships Next.js today.',
       },
       {
         title: 'Visualize & document',
         body: 'Export to Mermaid, PlantUML, DOT, HTML, or an interactive browser graph.',
       },
       {
-        title: 'Editor & CI integrations',
-        body: 'A CLI, VS Code extension, ESLint rules, and a GitHub Action for pull requests.',
+        title: 'Editor & CI',
+        body: 'CLI, VS Code extension, ESLint rules, and a GitHub Action for pull requests.',
       },
       {
         title: 'Incremental by design',
@@ -41,28 +41,28 @@ const homeContent: Record<Locale, HomeContent> = {
   fa: {
     features: [
       {
-        title: 'گراف مسیر تایپ‌شده',
-        body: 'هر مسیر، layout، API handler، redirect و navigation در یک مدل قابل جستجو.',
+        title: 'گراف روت، تایپ‌شده',
+        body: 'page، layout، API، redirect، لینک — همه‌ش تو یه جا که بتونی روش کار کنی.',
       },
       {
-        title: 'تشخیص استاتیک',
-        body: 'مسیرهای مرده، لینک‌های شکسته و چرخه‌های redirect — قبل از runtime در CI شناسایی می‌شوند.',
+        title: 'باگ روت قبل از پروداکشن',
+        body: 'روت مرده، لینک مرده، حلقه redirect. تو CI می‌گیری، نه وقتی کاربر گیر کرده.',
       },
       {
-        title: 'هسته مستقل از فریم‌ورک',
-        body: 'پشتیبانی از Next.js، React Router و TanStack Router با افزونه‌های کوچک و ترکیبی.',
+        title: 'به فریم‌ورک قفل نیست',
+        body: 'Next، React Router، TanStack با پلاگین. فعلاً CLI همون Next رو بلده.',
       },
       {
-        title: 'مصورسازی و مستندسازی',
-        body: 'خروجی به Mermaid، PlantUML، DOT، HTML یا گراف تعاملی مرورگر.',
+        title: 'ببین، بکش بیرون',
+        body: 'Mermaid، PlantUML، DOT، HTML، یا گراف تو مرورگر.',
       },
       {
-        title: 'یکپارچه‌سازی با ویرایشگر و CI',
-        body: 'CLI، افزونه VS Code، قوانین ESLint و GitHub Action برای pull requestها.',
+        title: 'ادیتور و پایپلاین',
+        body: 'CLI، VS Code، ESLint، GitHub Action برای PR.',
       },
       {
-        title: 'طراحی افزایشی',
-        body: 'حالت watch فایل‌ها را hash می‌کند و فقط بخش تغییر‌یافته گراف را دوباره محاسبه می‌کند.',
+        title: 'فقط چیزایی که عوض شدن',
+        body: 'watch فایل رو hash می‌کنه، همون تیکه گراف رو دوباره حساب می‌کنه.',
       },
     ],
   },

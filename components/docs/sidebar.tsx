@@ -13,13 +13,13 @@ export function Sidebar() {
   const docsNav = getDocsNav(locale);
 
   return (
-    <nav className="flex flex-col gap-7" aria-label={ui.docNavLabel}>
+    <nav className="flex flex-col gap-8" aria-label={ui.docNavLabel}>
       {docsNav.map((section) => (
-        <div key={section.title} className="flex flex-col gap-1.5">
-          <p className="px-3 text-xs font-bold uppercase tracking-wider text-ink-faint">
+        <div key={section.title} className="flex flex-col gap-1">
+          <p className="px-3 pb-1 text-[11px] font-bold uppercase tracking-[0.16em] text-ink-faint">
             {section.title}
           </p>
-          <ul className="flex flex-col">
+          <ul className="flex flex-col gap-0.5">
             {section.links.map((link) => {
               const active = pathname === link.href;
               return (
@@ -27,9 +27,9 @@ export function Sidebar() {
                   <Link
                     href={link.href}
                     aria-current={active ? 'page' : undefined}
-                    className={`block rounded-lg px-3 py-1.5 text-sm transition ${
+                    className={`nav-link block rounded-xl px-3 py-2 text-sm ${
                       active
-                        ? 'bg-brand/10 font-semibold text-brand'
+                        ? 'bg-[var(--brand-soft)] font-semibold text-brand shadow-[inset_3px_0_0_0_var(--brand)]'
                         : 'text-ink-muted hover:bg-surface hover:text-ink'
                     }`}
                   >

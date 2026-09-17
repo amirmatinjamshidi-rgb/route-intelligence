@@ -12,9 +12,9 @@ const meta: PageMetaByLocale = {
     lead: 'The graph is most useful where you already work. Route Intelligence ships an ESLint plugin, a VS Code extension, a GitHub Action, and Playwright test generation — all reading the same model.',
   },
   fa: {
-    title: 'یکپارچه‌سازی‌ها',
-    eyebrow: 'اکوسیستم',
-    lead: 'گراف بیشترین فایده را جایی دارد که همین حالا کار می‌کنید. Route Intelligence plugin ESLint، افزونه VS Code، GitHub Action و تولید تست Playwright را عرضه می‌کند — همه همان مدل را می‌خوانند.',
+    title: 'وصل کردن به بقیه',
+    eyebrow: 'دور و برش',
+    lead: 'گراف وقتی به درد می‌خوره که همون‌جایی باشه که کار می‌کنی: ESLint، VS Code، Action، Playwright.',
   },
 };
 

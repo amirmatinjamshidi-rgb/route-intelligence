@@ -12,9 +12,9 @@ const meta: PageMetaByLocale = {
     lead: 'Once the graph is built, Route Intelligence runs a suite of static checks over it. Each finding is a diagnostic with a rule id, a severity, and a precise source location.',
   },
   fa: {
-    title: 'تشخیص‌ها',
-    eyebrow: 'مفاهیم اصلی',
-    lead: 'پس از ساخت گراف، Route Intelligence مجموعه‌ای از بررسی‌های استاتیک روی آن اجرا می‌کند. هر یافته یک diagnostic با شناسهٔ قانون، شدت و محل دقیق در سورس است.',
+    title: 'ارور و هشدار',
+    eyebrow: 'مغزش چیه',
+    lead: 'گراف که اومد، یه سری چک روش می‌زنه. هر یافته rule id داره، شدت داره، می‌گه کدوم خط سورس.',
   },
 };
 

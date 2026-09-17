@@ -12,9 +12,9 @@ const meta: PageMetaByLocale = {
     lead: 'Drop a ri.config.ts file at your project root to control what gets analyzed, which plugins run, and how rules behave. Use the typed defineConfig helper for autocomplete.',
   },
   fa: {
-    title: 'پیکربندی',
-    eyebrow: 'کاربرد',
-    lead: 'فایل ri.config.ts را در ریشهٔ پروژه قرار دهید تا کنترل کنید چه چیزی تحلیل شود، کدام pluginها اجرا شوند و قوانین چگونه رفتار کنند. از helper تایپ‌شده defineConfig برای autocomplete استفاده کنید.',
+    title: 'کانفیگ',
+    eyebrow: 'دست به کار',
+    lead: 'ریشه پروژه ri.config.ts بذار. چی اسکن بشه، کدوم پلاگین روشن باشه، قانون‌ها چطور. defineConfig اتوکامپلیت می‌ده.',
   },
 };
 

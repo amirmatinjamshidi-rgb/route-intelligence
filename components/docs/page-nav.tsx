@@ -19,7 +19,7 @@ export function PageNav() {
       {prev ? (
         <Link
           href={prev.href}
-          className="flex flex-col rounded-xl border border-line p-4 transition hover:border-brand"
+          className="flex flex-col rounded-2xl border border-line bg-surface p-4 shadow-[var(--shadow)] transition hover:-translate-y-0.5 hover:border-brand/50"
         >
           <span className="text-xs text-ink-faint">{ui.previous}</span>
           <span className="font-semibold text-brand">
@@ -32,7 +32,7 @@ export function PageNav() {
       {next ? (
         <Link
           href={next.href}
-          className="flex flex-col rounded-xl border border-line p-4 text-end transition hover:border-brand sm:items-end"
+          className="flex flex-col rounded-2xl border border-line bg-surface p-4 text-end shadow-[var(--shadow)] transition hover:-translate-y-0.5 hover:border-brand/50 sm:items-end"
         >
           <span className="text-xs text-ink-faint">{ui.next}</span>
           <span className="font-semibold text-brand">

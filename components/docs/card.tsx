@@ -17,11 +17,13 @@ export function Card({
   return (
     <Link
       href={href}
-      className="group flex flex-col gap-1.5 rounded-2xl border border-line bg-surface p-5 transition hover:border-brand hover:shadow-sm"
+      className="group nav-link flex flex-col gap-1.5 rounded-2xl border border-line bg-surface/90 p-5 shadow-[var(--shadow)] hover:-translate-y-0.5 hover:border-brand/50"
     >
       <span className="flex items-center gap-1.5 font-semibold text-ink">
         {title}
-        <span className="text-brand transition group-hover:translate-x-0.5">→</span>
+        <span className="text-brand transition group-hover:translate-x-0.5 rtl:rotate-180 rtl:group-hover:-translate-x-0.5">
+          →
+        </span>
       </span>
       <span className="text-sm leading-6 text-ink-muted">{children}</span>
     </Link>

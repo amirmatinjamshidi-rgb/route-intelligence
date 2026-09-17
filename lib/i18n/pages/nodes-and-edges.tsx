@@ -11,9 +11,9 @@ const meta: PageMetaByLocale = {
     lead: 'The serialized graph is plain JSON: a list of nodes, a list of edges, and some metadata. Here is exactly what each one contains.',
   },
   fa: {
-    title: 'Nodeها و یال‌ها',
-    eyebrow: 'مفاهیم اصلی',
-    lead: 'گراف سریال‌شده JSON ساده است: فهرستی از nodeها، فهرستی از یال‌ها و مقداری metadata. در اینجا دقیقاً محتوای هر کدام را می‌بینید.',
+    title: 'نود و یال',
+    eyebrow: 'مغزش چیه',
+    lead: 'خروجی JSON ساده‌ست: نودها، یال‌ها، یه کم metadata. این‌جا می‌بینی دقیقاً چی توشه.',
   },
 };
 

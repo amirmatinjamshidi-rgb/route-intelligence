@@ -20,14 +20,18 @@ export function DocPage({
 }) {
   return (
     <article className="mx-auto max-w-3xl">
-      <header className="mb-8 flex flex-col gap-3">
-        {eyebrow ? (
-          <span className="text-sm font-semibold uppercase tracking-wider text-brand">
-            {eyebrow}
-          </span>
-        ) : null}
-        <h1 className="text-4xl font-extrabold tracking-tight text-ink">{title}</h1>
-        <Lead>{lead}</Lead>
+      <header className="doc-hero mb-10 px-6 py-8 sm:px-8">
+        <div className="relative z-10 flex flex-col gap-3">
+          {eyebrow ? (
+            <span className="text-xs font-semibold uppercase tracking-[0.2em] text-brand">
+              {eyebrow}
+            </span>
+          ) : null}
+          <h1 className="text-4xl font-bold tracking-tight text-ink sm:text-[2.75rem] sm:leading-tight">
+            {title}
+          </h1>
+          <Lead>{lead}</Lead>
+        </div>
       </header>
 
       {children}

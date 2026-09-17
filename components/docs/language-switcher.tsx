@@ -18,7 +18,9 @@ export function LanguageSwitcher({ locale }: { locale: Locale }) {
             href={switchLocalePath(pathname, code)}
             aria-current={active ? 'true' : undefined}
             className={`rounded-md px-2 py-1 font-medium transition ${
-              active ? 'bg-brand/10 text-brand' : 'text-ink-muted hover:bg-surface hover:text-ink'
+              active
+                ? 'bg-[var(--brand-soft)] text-brand'
+                : 'text-ink-muted hover:bg-surface hover:text-ink'
             }`}
           >
             {localeNames[code]}

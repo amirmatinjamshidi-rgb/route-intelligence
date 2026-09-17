@@ -11,7 +11,7 @@ export function TopNav({ locale }: { locale: Locale }) {
   const ui = getUi(locale);
 
   return (
-    <header className="sticky top-0 z-40 border-b border-line bg-transparent backdrop-blur">
+    <header className="glass-nav sticky top-0 z-40 border-b border-line/80">
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between gap-4 px-4 sm:px-6">
         <div className="flex items-center gap-3">
           <MobileNav locale={locale} />
@@ -22,13 +22,13 @@ export function TopNav({ locale }: { locale: Locale }) {
           <LanguageSwitcher locale={locale} />
           <Link
             href={localizePath('/docs', locale)}
-            className="rounded-lg px-3 py-1.5 text-ink-muted transition hover:bg-surface hover:text-ink"
+            className="nav-link rounded-full px-3 py-1.5 text-ink-muted hover:bg-surface hover:text-ink"
           >
             {ui.docs}
           </Link>
           <Link
             href={localizePath('/docs/cli', locale)}
-            className="hidden rounded-lg px-3 py-1.5 text-ink-muted transition hover:bg-surface hover:text-ink sm:block"
+            className="nav-link hidden rounded-full px-3 py-1.5 text-ink-muted hover:bg-surface hover:text-ink sm:block"
           >
             {ui.cli}
           </Link>
@@ -36,7 +36,7 @@ export function TopNav({ locale }: { locale: Locale }) {
             href={GITHUB_URL}
             target="_blank"
             rel="noreferrer"
-            className="rounded-lg px-3 py-1.5 text-ink-muted transition hover:bg-surface hover:text-ink"
+            className="nav-link rounded-full px-3 py-1.5 text-ink-muted hover:bg-surface hover:text-ink"
           >
             {ui.github}
           </a>

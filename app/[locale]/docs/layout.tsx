@@ -17,20 +17,20 @@ export default async function DocsLayout({
   const locale = rawLocale as Locale;
 
   return (
-    <div className="min-h-screen">
+    <div className="docs-shell min-h-screen">
       <TopNav locale={locale} />
 
-      <div className="mx-auto flex max-w-7xl gap-8 px-4 sm:px-6">
-        <aside className="hidden w-60 shrink-0 lg:block">
-          <div className="scroll-rail sticky top-16 max-h-[calc(100vh-4rem)] overflow-y-auto py-10 pe-2">
+      <div className="mx-auto flex max-w-7xl gap-0 px-4 sm:gap-8 sm:px-6">
+        <aside className="hidden w-64 shrink-0 lg:block">
+          <div className="scroll-rail sticky top-16 max-h-[calc(100vh-4rem)] overflow-y-auto border-e border-line/70 py-10 pe-5">
             <Sidebar />
           </div>
         </aside>
 
-        <main className="min-w-0 flex-1 py-10">{children}</main>
+        <main className="docs-main min-w-0 flex-1 py-10">{children}</main>
 
         <aside className="hidden w-56 shrink-0 xl:block">
-          <div className="scroll-rail sticky top-16 max-h-[calc(100vh-4rem)] overflow-y-auto py-10">
+          <div className="scroll-rail sticky top-16 max-h-[calc(100vh-4rem)] overflow-y-auto py-10 ps-2">
             <TableOfContents />
           </div>
         </aside>

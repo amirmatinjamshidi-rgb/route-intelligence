@@ -43,11 +43,11 @@ export function LCard({
   return (
     <Link
       href={localizePath(href, locale)}
-      className="group flex flex-col gap-1.5 rounded-2xl border border-line bg-surface p-5 transition hover:border-brand hover:shadow-sm"
+      className="group flex flex-col gap-1.5 rounded-2xl border border-line bg-surface p-5 shadow-[var(--shadow)] transition hover:-translate-y-0.5 hover:border-brand/50"
     >
       <span className="flex items-center gap-1.5 font-semibold text-ink">
         {title}
-        <span className="text-brand transition group-hover:translate-x-0.5 rtl:group-hover:-translate-x-0.5">
+        <span className="text-brand transition group-hover:translate-x-0.5 rtl:rotate-180 rtl:group-hover:-translate-x-0.5">
           →
         </span>
       </span>

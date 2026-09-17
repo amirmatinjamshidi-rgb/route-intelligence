@@ -12,9 +12,9 @@ const meta: PageMetaByLocale = {
     lead: 'The core engine is framework-agnostic. Plugins teach it how a given router discovers routes and expresses navigation. Mix and match them in your config.',
   },
   fa: {
-    title: 'pluginهای فریم‌ورک',
-    eyebrow: 'اکوسیستم',
-    lead: 'موتور اصلی مستقل از فریم‌ورک است. pluginها به آن می‌آموزند یک router مشخص چگونه مسیرها را کشف و navigation را بیان می‌کند. آن‌ها را در پیکربندی ترکیب کنید.',
+    title: 'پلاگین فریم‌ورک',
+    eyebrow: 'دور و برش',
+    lead: 'هسته کاری به فریم‌ورک نداره. پلاگین یادش می‌ده روت‌ها کجان. CLI فعلاً فقط Next رو روشن می‌کنه.',
   },
 };
 
@@ -25,6 +25,11 @@ export function getMeta(locale: Locale) {
 function ContentEn({ locale }: { locale: Locale }) {
   return (
     <Prose>
+      <Callout kind="note" title="CLI today">
+        <InlineCode>@route-intelligence/cli</InlineCode> always registers{' '}
+        <InlineCode>NextPlugin()</InlineCode>. React Router and TanStack plugins work with{' '}
+        <InlineCode>createAnalyzer</InlineCode> in your own script, not yet via the CLI.
+      </Callout>
       <H2 id="next">Next.js</H2>
       <P>
         <InlineCode>@route-intelligence/next</InlineCode> understands both the App Router and the
@@ -113,6 +118,11 @@ TanStackPlugin();`}
 function ContentFa({ locale }: { locale: Locale }) {
   return (
     <Prose>
+      <Callout kind="note" title="الان CLI چی می‌زنه">
+        <InlineCode>@route-intelligence/cli</InlineCode> همیشه <InlineCode>NextPlugin()</InlineCode>{' '}
+        رو می‌ذاره. React Router و TanStack رو باید خودت با <InlineCode>createAnalyzer</InlineCode>{' '}
+        تو اسکریپت بذاری.
+      </Callout>
       <H2 id="next">Next.js</H2>
       <P>
         <InlineCode>@route-intelligence/next</InlineCode> هم App Router و هم Pages Router را

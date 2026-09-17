@@ -12,9 +12,9 @@ const meta: PageMetaByLocale = {
     lead: 'Route Intelligence is the React DevTools for routing. It statically analyzes your React and Next.js codebase and builds a complete, typed graph of every route, layout, redirect, and navigation in your app.',
   },
   fa: {
-    title: 'معرفی',
-    eyebrow: 'شروع کار',
-    lead: 'Route Intelligence همان DevTools مسیریابی برای React است. این ابزار به‌صورت استاتیک کدبیس React و Next.js شما را تحلیل می‌کند و گراف کامل و تایپ‌شده‌ای از هر مسیر، layout، redirect و navigation در اپلیکیشن می‌سازد.',
+    title: 'این چیه اصلاً؟',
+    eyebrow: 'اول کار',
+    lead: 'یه جورایی DevTools روتینگ برای Reactـه. کد Next/React رو می‌خونه، از هر روت و layout و لینک یه گراف می‌سازه — اپ رو روشن نمی‌کنه.',
   },
 };
 
@@ -92,62 +92,58 @@ function ContentFa({ locale }: { locale: Locale }) {
   return (
     <Prose>
       <P>
-        اپلیکیشن‌های مدرن مسیریابی را در ده‌ها فایل پراکنده می‌کنند: صفحات، layoutها، middleware و
-        فراخوانی‌های <InlineCode>{'<Link>'}</InlineCode> در سراسر کامپوننت‌ها. Route Intelligence همهٔ
-        این‌ها را <Strong>بدون اجرای اپلیکیشن</Strong> می‌خواند و به یک گراف واحد تبدیل می‌کند که
-        می‌توانید آن را جستجو، مصورسازی، lint و مستند کنید.
+        روت تو اپ امروزی همه‌جا پخشه: page، layout، middleware، یه عالمه{' '}
+        <InlineCode>{'<Link>'}</InlineCode> تو کامپوننت‌ها. این ابزار همه‌شون رو{' '}
+        <Strong>بدون روشن کردن اپ</Strong> می‌خونه و می‌ریزه تو یه گراف — سرچ کن، ببین، lint بزن، داک
+        بساز.
       </P>
 
-      <H2 id="what-you-get">چه چیزی به دست می‌آورید</H2>
+      <H2 id="what-you-get">چی گیرت میاد</H2>
       <UL>
         <LI>
-          <Strong>گراف مسیر تایپ‌شده</Strong> — هر مسیر، layout، API handler، redirect و یال
-          navigation در یک مدل.
+          <Strong>گراف تایپ‌شده</Strong> — روت، layout، API، redirect، لینک؛ همه‌ش یه جا.
         </LI>
         <LI>
-          <Strong>تشخیص استاتیک</Strong> — مسیرهای مرده، لینک‌های شکسته، چرخه‌های redirect و error
-          boundaryهای گم‌شده، قبل از runtime شناسایی می‌شوند.
+          <Strong>هشدار قبل از اجرا</Strong> — روت مرده، لینک شکسته، حلقه redirect، error boundary
+          جاافتاده.
         </LI>
         <LI>
-          <Strong>مصورسازی و مستندات</Strong> — خروجی به Mermaid، PlantUML، DOT، HTML، JSON یا گراف
-          تعاملی مرورگر.
+          <Strong>نمودار و داک</Strong> — Mermaid، PlantUML، DOT، HTML، JSON یا گراف تو مرورگر.
         </LI>
         <LI>
-          <Strong>یکپارچه‌سازی‌های اکوسیستم</Strong> — CLI، افزونه VS Code، قوانین ESLint، GitHub
-          Action و تولید تست Playwright.
+          <Strong>ابزار دور و بر</Strong> — CLI، VS Code، ESLint، GitHub Action، تست Playwright.
         </LI>
       </UL>
 
-      <H2 id="how-it-works">چگونه کار می‌کند</H2>
+      <H2 id="how-it-works">چطور کار می‌کنه</H2>
       <P>
-        موتور اصلی هرگز به React وابسته نیست. در عوض، پشتیبانی از فریم‌ورک‌ها از طریق{' '}
-        <Strong>plugins</Strong> (Next.js، React Router، TanStack Router) فراهم می‌شود. هر plugin به
-        تحلیل‌گر می‌آموزد که یک فریم‌ورک چگونه فایل‌ها را به مسیر نگاشت می‌کند؛ هستهٔ اصلی parsing، ساخت
-        گراف، تحلیل و export را انجام می‌دهد. همهٔ جریان‌ها از یک مدل گراف مشترک و تایپ‌شده عبور می‌کنند.
+        هسته به React قفل نیست. فریم‌ورک با <Strong>plugin</Strong> میاد (Next، React Router،
+        TanStack). پلاگین می‌گه فایل‌ها چی‌جور روت می‌شن؛ هسته parse می‌کنه، گراف می‌سازه، تحلیل می‌کنه،
+        export می‌ده. همه‌چیز از یه مدل مشترک رد می‌شه.
       </P>
 
-      <Callout kind="note" title="استاتیک، نه runtime">
-        Route Intelligence از{' '}
+      <Callout kind="note" title="استاتیکه، اجرا نمی‌کنه">
+        با{' '}
         <LA href="https://ts-morph.com" locale={locale}>
           ts-morph
         </LA>{' '}
-        برای خواندن سورس با کامپایلر TypeScript استفاده می‌کند. هرگز کد شما را اجرا نمی‌کند، بنابراین
-        اجرای آن در CI و روی branchهای ناشناخته امن است.
+        و کامپایلر TypeScript سورس رو می‌خونه. کدت اجرا نمی‌شه؛ تو CI و روی branch غریبه هم خیالت
+        راحته.
       </Callout>
 
-      <H2 id="next-steps">گام‌های بعدی</H2>
+      <H2 id="next-steps">بعدش چی</H2>
       <CardGrid>
         <LCard href="/docs/installation" locale={locale} title="نصب">
-          Route Intelligence را با npm، Yarn یا Bun به پروژه اضافه کنید.
+          معمولاً فقط CLI کافیه. npm / Yarn / Bun.
         </LCard>
-        <LCard href="/docs/quick-start" locale={locale} title="شروع سریع">
-          مسیرها را تحلیل کنید و گراف را در کمتر از یک دقیقه باز کنید.
+        <LCard href="/docs/quick-start" locale={locale} title="زود شروع کن">
+          اسکن کن، زیر یه دقیقه گراف رو باز کن.
         </LCard>
-        <LCard href="/docs/concepts" locale={locale} title="گراف مسیر">
-          مدلی را بشناسید که همهٔ قابلیت‌ها بر پایهٔ آن ساخته شده‌اند.
+        <LCard href="/docs/concepts" locale={locale} title="گراف روت">
+          مدلی که همه‌چیز روش سواره.
         </LCard>
         <LCard href="/docs/cli" locale={locale} title="دستورات CLI">
-          مرجع کامل دستورات: analyze، graph، doctor و بیشتر.
+          analyze، graph، doctor و اینا.
         </LCard>
       </CardGrid>
     </Prose>

@@ -12,9 +12,9 @@ const meta: PageMetaByLocale = {
     lead: "Everything Route Intelligence does is built on one idea: your app's routing is a directed graph. Routes are nodes, navigations are edges, and analysis is just graph traversal.",
   },
   fa: {
-    title: 'گراف مسیر',
-    eyebrow: 'مفاهیم اصلی',
-    lead: 'همهٔ کارهای Route Intelligence بر یک ایده بنا شده: مسیریابی اپلیکیشن شما یک گراف جهت‌دار است. مسیرها node هستند، navigationها یال‌اند و تحلیل همان پیمایش گراف است.',
+    title: 'گراف روت',
+    eyebrow: 'مغزش چیه',
+    lead: 'کل قصه یه جمله‌ست: روتینگ اپ یه گراف جهت‌داره. روت = نود، لینک = یال، تحلیل = گشتن تو همون گراف.',
   },
 };
 

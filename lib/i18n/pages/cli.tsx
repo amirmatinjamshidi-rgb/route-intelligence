@@ -13,8 +13,8 @@ const meta: PageMetaByLocale = {
   },
   fa: {
     title: 'دستورات CLI',
-    eyebrow: 'کاربرد',
-    lead: 'CLI route-intelligence موتور را در شش دستور می‌پیچد. آن را با npx، package manager یا مستقیماً روی bundle ساخته‌شده اجرا کنید.',
+    eyebrow: 'دست به کار',
+    lead: 'شش تا دستور. npx بزن یا بذار تو package.json. می‌خوای گراف ببینی؟ همون graph.',
   },
 };
 
@@ -143,8 +143,8 @@ Graph updated: +1 nodes, -0 nodes`}
 function ContentFa({ locale }: { locale: Locale }) {
   return (
     <Prose>
-      <H2 id="invocation">فراخوانی</H2>
-      <P>سه روش معادل برای اجرای CLI وجود دارد:</P>
+      <H2 id="invocation">چطور اجراش کنی</H2>
+      <P>سه تا راه، فرقی نداره:</P>
       <CodeBlock
         language="bash"
         code={`# Via npx (installed as a dependency)
@@ -158,7 +158,7 @@ node packages/cli/dist/cli.js <command> [options]`}
       />
 
       <H2 id="analyze">analyze</H2>
-      <P>مسیریابی را تحلیل می‌کند و گراف را روی دیسک با فرمت دلخواه می‌نویسد.</P>
+      <P>روت‌ها رو می‌خونه، گراف رو با فرمتی که بخوای می‌نویسه رو دیسک.</P>
       <CodeBlock
         language="bash"
         code="route-intelligence analyze --root . --format json --out ri-output"
@@ -177,7 +177,7 @@ node packages/cli/dist/cli.js <command> [options]`}
       />
 
       <H2 id="graph">graph</H2>
-      <P>تحلیل می‌کند و سپس سرور محلی با مرورگر گراف تعاملی راه می‌اندازد.</P>
+      <P>تحلیل می‌کنه، بعد سرور محلی با گراف تو مرورگر بالا میاد.</P>
       <CodeBlock language="bash" code="route-intelligence graph --port 3001 --host localhost" />
       <Table
         head={['گزینه', 'پیش‌فرض', 'توضیح']}
@@ -189,7 +189,7 @@ node packages/cli/dist/cli.js <command> [options]`}
       />
 
       <H2 id="doctor">doctor</H2>
-      <P>همهٔ قوانین diagnostic را اجرا می‌کند و مشکلات را گزارش می‌دهد. ایده‌آل برای CI.</P>
+      <P>همه قانون‌ها رو می‌چرخونه، مشکل‌ها رو می‌گه. برای CI عالیه.</P>
       <CodeBlock language="bash" code="route-intelligence doctor --root . --strict --format text" />
       <Table
         head={['گزینه', 'پیش‌فرض', 'توضیح']}

@@ -2,7 +2,11 @@ import Link from 'next/link';
 import type { ReactNode } from 'react';
 
 export function Prose({ children }: { children: ReactNode }) {
-  return <div className="flex flex-col gap-5 leading-7 text-ink-muted">{children}</div>;
+  return (
+    <div className="flex flex-col gap-5 text-[15px] leading-7 text-ink-muted sm:text-base sm:leading-8">
+      {children}
+    </div>
+  );
 }
 
 export function Lead({ children }: { children: ReactNode }) {
@@ -89,7 +93,7 @@ export function Strong({ children }: { children: ReactNode }) {
 
 export function Table({ head, rows }: { head: string[]; rows: ReactNode[][] }) {
   return (
-    <div className="overflow-x-auto rounded-xl border border-line">
+    <div className="overflow-x-auto rounded-2xl border border-line bg-surface shadow-[var(--shadow)]">
       <table className="w-full border-collapse text-start text-sm">
         <thead>
           <tr className="bg-surface">

@@ -13,10 +13,10 @@ export function CodeBlock({ code, language, filename }: CodeBlockProps) {
   const label = filename ?? language;
 
   return (
-    <div className="overflow-hidden rounded-xl border border-line bg-code-bg">
+    <div className="overflow-hidden rounded-2xl border border-line bg-code-bg shadow-[var(--shadow)]">
       {label ? (
-        <div className="flex items-center justify-between border-b border-line px-4 py-2">
-          <span className="font-mono text-xs text-ink-faint">{label}</span>
+        <div className="flex items-center justify-between border-b border-white/8 px-4 py-2">
+          <span className="font-mono text-xs text-white/45">{label}</span>
           <CopyButton value={trimmed} />
         </div>
       ) : (

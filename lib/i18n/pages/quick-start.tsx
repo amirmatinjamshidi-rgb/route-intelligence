@@ -12,9 +12,9 @@ const meta: PageMetaByLocale = {
     lead: 'Go from zero to an interactive route graph in under a minute. This guide assumes a Next.js project, but the workflow is identical for any supported framework.',
   },
   fa: {
-    title: 'شروع سریع',
-    eyebrow: 'شروع کار',
-    lead: 'در کمتر از یک دقیقه از صفر به گراف مسیر تعاملی برسید. این راهنما پروژه Next.js را فرض می‌کند، اما گردش کار برای هر فریم‌ورک پشتیبانی‌شده یکسان است.',
+    title: 'زود شروع کن',
+    eyebrow: 'اول کار',
+    lead: 'زیر یه دقیقه از صفر می‌رسی به گراف تو مرورگر. این صفحه Next فرض می‌کنه. React Router / TanStack فعلاً از کد، نه از CLI.',
   },
 };
 
@@ -107,78 +107,77 @@ Written to ri-output/graph.json`}
 function ContentFa({ locale }: { locale: Locale }) {
   return (
     <Prose>
-      <H2 id="1-analyze">۱. تحلیل مسیرها</H2>
+      <H2 id="1-analyze">۱. روت‌ها رو اسکن کن</H2>
       <P>
-        <InlineCode>analyze</InlineCode> را از ریشهٔ پروژه اجرا کنید. این دستور{' '}
-        <InlineCode>app/</InlineCode>، <InlineCode>pages/</InlineCode> و{' '}
-        <InlineCode>middleware.ts</InlineCode> را اسکن می‌کند و گراف را در{' '}
-        <InlineCode>ri-output/graph.json</InlineCode> می‌نویسد.
+        از ریشه پروژه <InlineCode>analyze</InlineCode> بزن. <InlineCode>app/</InlineCode>،{' '}
+        <InlineCode>pages/</InlineCode> و <InlineCode>middleware.ts</InlineCode> رو می‌گرده، گراف
+        می‌ره تو <InlineCode>ri-output/graph.json</InlineCode>.
       </P>
       <CodeBlock language="bash" code="npx route-intelligence analyze --root ." />
-      <P>خلاصه‌ای شبیه این باید ببینید:</P>
+      <P>چیزی شبیه این می‌بینی:</P>
       <CodeBlock
         language="text"
         code={`✔ Found 12 routes, 4 layouts
 Written to ri-output/graph.json`}
       />
 
-      <H2 id="2-visualize">۲. باز کردن گراف تعاملی</H2>
+      <H2 id="2-visualize">۲. گراف رو تو مرورگر باز کن</H2>
       <P>
-        دستور <InlineCode>graph</InlineCode> تحلیل می‌کند و رابط مرورگر محلی را اجرا می‌کند؛ در آنجا
-        می‌توانید مسیرها را جستجو کنید، overlayها را تغییر دهید و nodeها را بررسی کنید.
+        <InlineCode>graph</InlineCode> هم تحلیل می‌کنه هم سرور محلی می‌زنه. سرچ کن، فیلتر بزن، روی نود
+        کلیک کن.
       </P>
       <CodeBlock language="bash" code="npx route-intelligence graph --port 3001" />
       <P>
-        برای کاوش گراف،{' '}
+        برو{' '}
         <LA href="http://localhost:3001" locale={locale}>
           http://localhost:3001
-        </LA>{' '}
-        را باز کنید.
+        </LA>
+        .
       </P>
 
-      <H2 id="3-check-health">۳. بررسی مشکلات</H2>
+      <H2 id="3-check-health">۳. ببین چی خرابه</H2>
       <P>
-        <InlineCode>doctor</InlineCode> همهٔ قوانین تحلیل استاتیک را اجرا می‌کند و diagnosticها را چاپ
-        می‌کند — مسیرهای مرده، لینک‌های شکسته، چرخه‌های redirect و موارد دیگر.
+        <InlineCode>doctor</InlineCode> همه قانون‌ها رو می‌چرخونه: روت مرده، لینک شکسته، حلقه
+        redirect.
       </P>
       <CodeBlock language="bash" code="npx route-intelligence doctor --root . --strict" />
-      <Callout kind="tip" title="مناسب برای CI">
-        با <InlineCode>--strict</InlineCode> در صورت warning هم با کد غیرصفر خارج می‌شود، تا لینک
-        شکسته pipeline شما را fail کند.
+      <Callout kind="tip" title="برای CI خوبه">
+        با <InlineCode>--strict</InlineCode> حتی warning هم exit غیرصفر می‌ده، لینک شکسته پایپلاین رو
+        می‌ترکونه.
       </Callout>
 
-      <H2 id="4-export">۴. خروجی برای مستندات یا نمودار</H2>
-      <P>یک نمودار Mermaid بسازید که بتوانید در README یا wiki قرار دهید:</P>
+      <H2 id="4-export">۴. نمودار برای README</H2>
+      <P>Mermaid بساز، بچسبون تو داک:</P>
       <CodeBlock
         language="bash"
         code="npx route-intelligence analyze --format mermaid --out ri-output"
       />
 
-      <H2 id="what-next">بعدش چه؟</H2>
+      <H2 id="what-next">بعدش؟</H2>
       <OL>
         <LI>
           <LA href="/docs/concepts" locale={locale}>
-            مدل گراف مسیر
+            مدل گراف
           </LA>{' '}
-          را بشناسید که پایهٔ همهٔ این قابلیت‌هاست.
+          رو یه دور بخون.
         </LI>
         <LI>
-          یک{' '}
+          اگه خواستی{' '}
           <LA href="/docs/configuration" locale={locale}>
-            فایل پیکربندی
+            کانفیگ
           </LA>{' '}
-          اضافه کنید تا includeها، pluginها و قوانین را سفارشی کنید.
+          بذار.
         </LI>
         <LI>
           <LA href="/docs/integrations" locale={locale}>
-            یکپارچه‌سازی‌ها
+            ESLint / VS Code / Action
           </LA>{' '}
-          را راه بیندازید: ESLint، VS Code و GitHub Action برای PRها.
+          رو وصل کن.
         </LI>
       </OL>
       <P>
-        <Strong>نکته:</Strong> <InlineCode>analyze</InlineCode> را به مرحلهٔ{' '}
-        <InlineCode>predev</InlineCode> یا pre-commit اضافه کنید تا گراف همیشه به‌روز بماند.
+        <Strong>تیپ:</Strong> <InlineCode>analyze</InlineCode> رو بذار تو{' '}
+        <InlineCode>predev</InlineCode> یا pre-commit تا گراف کهنه نمونه.
       </P>
     </Prose>
   );

@@ -9,12 +9,12 @@ const meta: PageMetaByLocale = {
   en: {
     title: 'Installation',
     eyebrow: 'Get Started',
-    lead: 'Route Intelligence is a monorepo of small, focused packages. Install the CLI to get started, or pull in individual packages as you need them.',
+    lead: 'Route Intelligence is a set of small packages. Most people only install the CLI — it already pulls in core and the Next.js plugin.',
   },
   fa: {
     title: 'نصب',
-    eyebrow: 'شروع کار',
-    lead: 'Route Intelligence یک monorepo از بسته‌های کوچک و متمرکز است. برای شروع CLI را نصب کنید، یا بسته‌های جداگانه را در صورت نیاز اضافه کنید.',
+    eyebrow: 'اول کار',
+    lead: 'پکیج زیاده، ولی معمولاً فقط CLI کافیه. خودش core و پلاگین Next رو میاره.',
   },
 };
 
@@ -36,24 +36,19 @@ function ContentEn({ locale }: { locale: Locale }) {
       </UL>
 
       <H2 id="install-the-cli">Install the CLI</H2>
-      <P>The CLI is the fastest way to try Route Intelligence. Install it as a dev dependency:</P>
-      <CodeBlock
-        language="npm"
-        code="npm install -D @route-intelligence/cli @route-intelligence/next"
-      />
-      <CodeBlock
-        language="yarn"
-        code="yarn add -D @route-intelligence/cli @route-intelligence/next"
-      />
-      <CodeBlock
-        language="bun"
-        code="bun add -d @route-intelligence/cli @route-intelligence/next"
-      />
+      <P>
+        One package is enough to see results. The CLI depends on{' '}
+        <InlineCode>@route-intelligence/core</InlineCode> and{' '}
+        <InlineCode>@route-intelligence/next</InlineCode> — you do not install those yourself.
+      </P>
+      <CodeBlock language="npm" code="npm install -D @route-intelligence/cli" />
+      <CodeBlock language="yarn" code="yarn add -D @route-intelligence/cli" />
+      <CodeBlock language="bun" code="bun add -d @route-intelligence/cli" />
 
       <Callout kind="tip" title="Pick one package manager">
         The repo supports npm, Yarn, and Bun, but you should commit only one lockfile (
         <InlineCode>package-lock.json</InlineCode>, <InlineCode>yarn.lock</InlineCode>, or{' '}
-        <InlineCode>bun.lock</InlineCode>). If you switch managers, delete managers, delete{' '}
+        <InlineCode>bun.lock</InlineCode>). If you switch managers, delete{' '}
         <InlineCode>node_modules</InlineCode> and reinstall.
       </Callout>
 
@@ -82,7 +77,10 @@ function ContentEn({ locale }: { locale: Locale }) {
             'React Router v6/v7 plugin',
           ],
           [<InlineCode key="t">@route-intelligence/tanstack</InlineCode>, 'TanStack Router plugin'],
-          [<InlineCode key="cli">@route-intelligence/cli</InlineCode>, 'Command-line interface'],
+          [
+            <InlineCode key="cli">@route-intelligence/cli</InlineCode>,
+            'Install this. analyze / graph / doctor',
+          ],
           [
             <InlineCode key="v">@route-intelligence/visualizer</InlineCode>,
             'Interactive React Flow graph UI',
@@ -128,7 +126,7 @@ npm run analyze`}
 function ContentFa({ locale }: { locale: Locale }) {
   return (
     <Prose>
-      <H2 id="requirements">پیش‌نیازها</H2>
+      <H2 id="requirements">چی لازم داری</H2>
       <UL>
         <LI>
           <Strong>Node.js 22+</Strong>
@@ -139,78 +137,56 @@ function ContentFa({ locale }: { locale: Locale }) {
       </UL>
 
       <H2 id="install-the-cli">نصب CLI</H2>
-      <P>سریع‌ترین راه برای امتحان Route Intelligence، نصب CLI به‌عنوان dev dependency است:</P>
-      <CodeBlock
-        language="npm"
-        code="npm install -D @route-intelligence/cli @route-intelligence/next"
-      />
-      <CodeBlock
-        language="yarn"
-        code="yarn add -D @route-intelligence/cli @route-intelligence/next"
-      />
-      <CodeBlock
-        language="bun"
-        code="bun add -d @route-intelligence/cli @route-intelligence/next"
-      />
+      <P>
+        برای دیدن نتیجه همین یکی کافیه. CLI خودش <InlineCode>core</InlineCode> و پلاگین Next رو
+        میاره — جدا نصبشون نکن.
+      </P>
+      <CodeBlock language="npm" code="npm install -D @route-intelligence/cli" />
+      <CodeBlock language="yarn" code="yarn add -D @route-intelligence/cli" />
+      <CodeBlock language="bun" code="bun add -d @route-intelligence/cli" />
 
-      <Callout kind="tip" title="یک package manager انتخاب کنید">
-        این مخزن از npm، Yarn و Bun پشتیبانی می‌کند، اما فقط باید یک lockfile را commit کنید (
-        <InlineCode>package-lock.json</InlineCode>، <InlineCode>yarn.lock</InlineCode> یا{' '}
-        <InlineCode>bun.lock</InlineCode>). اگر package manager را عوض کردید،{' '}
-        <InlineCode>node_modules</InlineCode> را حذف کنید و دوباره نصب کنید.
+      <Callout kind="tip" title="یه package manager کافیه">
+        npm، Yarn، Bun اوکی‌ان. فقط یه lockfile commit کن (<InlineCode>package-lock.json</InlineCode>
+        ، <InlineCode>yarn.lock</InlineCode> یا <InlineCode>bun.lock</InlineCode>). عوض کردی؟{' '}
+        <InlineCode>node_modules</InlineCode> رو پاک کن دوباره نصب کن.
       </Callout>
 
-      <H2 id="packages">بسته‌ها</H2>
-      <P>
-        Route Intelligence به‌صورت مجموعه‌ای از بسته‌های ترکیبی عرضه می‌شود. هسته هرگز به React وابسته
-        نیست — دانش فریم‌ورک در plugins قرار دارد.
-      </P>
+      <H2 id="packages">بقیه پکیج‌ها</H2>
+      <P>هسته به React وصل نیست. دانش فریم‌ورک تو pluginـه. یوزر معمولی همون CLI رو می‌خواد.</P>
       <Table
-        head={['بسته', 'کاربرد']}
+        head={['پکیج', 'کی نصب کنه']}
         rows={[
-          [
-            <InlineCode key="s">@route-intelligence/shared</InlineCode>,
-            'تایپ‌ها و interfaceهای مشترک plugin',
-          ],
+          [<InlineCode key="cli">@route-intelligence/cli</InlineCode>, 'تو. همینه که نتیجه می‌ده'],
           [
             <InlineCode key="c">@route-intelligence/core</InlineCode>,
-            'موتور گراف، pipeline تحلیل و exporterها',
+            'اگه خودت تو Node تحلیل می‌نویسی',
           ],
-          [
-            <InlineCode key="n">@route-intelligence/next</InlineCode>,
-            'plugin برای Next.js App + Pages Router',
-          ],
+          [<InlineCode key="n">@route-intelligence/next</InlineCode>, 'با CLI میاد؛ جدا لازم نیست'],
+          [<InlineCode key="s">@route-intelligence/shared</InlineCode>, 'تایپ‌ها. نویسنده پلاگین'],
           [
             <InlineCode key="rr">@route-intelligence/react-router</InlineCode>,
-            'plugin برای React Router v6/v7',
+            'React Router — هنوز تو CLI نیست',
           ],
           [
             <InlineCode key="t">@route-intelligence/tanstack</InlineCode>,
-            'plugin برای TanStack Router',
+            'TanStack — هنوز تو CLI نیست',
           ],
-          [<InlineCode key="cli">@route-intelligence/cli</InlineCode>, 'رابط خط فرمان'],
           [
             <InlineCode key="v">@route-intelligence/visualizer</InlineCode>,
-            'رابط گراف تعاملی React Flow',
+            'گراف React Flow تو اپ خودت',
           ],
           [
             <InlineCode key="es">eslint-plugin-route-intelligence</InlineCode>,
-            'قوانین ESLint مبتنی بر گراف',
+            'بعد از analyze برای lint',
           ],
-          [<InlineCode key="vs">route-intelligence-vscode</InlineCode>, 'افزونه VS Code'],
-          [
-            <InlineCode key="ga">@route-intelligence/github-action</InlineCode>,
-            'کامنت graph-diff در PR',
-          ],
-          [<InlineCode key="pw">@route-intelligence/playwright</InlineCode>, 'تولید تست از گراف'],
+          [<InlineCode key="vs">route-intelligence-vscode</InlineCode>, 'از Marketplace، نه npm'],
+          [<InlineCode key="ga">@route-intelligence/github-action</InlineCode>, 'گزارش روت تو PR'],
+          [<InlineCode key="pw">@route-intelligence/playwright</InlineCode>, 'ساخت spec از گراف'],
         ]}
       />
 
-      <H2 id="from-source">اجرای از سورس</H2>
-      <P>
-        monorepo را clone کرده‌اید؟ همهٔ اسکریپت‌های root به‌صورت خودکار package manager شما را تشخیص
-        می‌دهند. پس از نصب، یک‌بار build کنید و پروژهٔ فعلی را تحلیل کنید:
-      </P>
+      <H2 id="from-source">از سورس این ریپو</H2>
+      <P>clone کردی؟ اسکریپت‌های root خودشون package manager رو می‌فهمن. نصب، build، بعد analyze:</P>
       <CodeBlock
         language="bash"
         code={`npm install
@@ -218,11 +194,11 @@ npm run build
 npm run analyze`}
       />
       <P>
-        برای گام‌های بعدی به{' '}
+        بعدش برو{' '}
         <LA href="/docs/quick-start" locale={locale}>
           شروع سریع
-        </LA>{' '}
-        مراجعه کنید.
+        </LA>
+        .
       </P>
     </Prose>
   );

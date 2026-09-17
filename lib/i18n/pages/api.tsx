@@ -11,9 +11,9 @@ const meta: PageMetaByLocale = {
     lead: 'Everything the CLI does is available from @route-intelligence/core. Build the graph in a script, query it, run algorithms, and export it yourself.',
   },
   fa: {
-    title: 'API برنامه‌ای',
-    eyebrow: 'کاربرد',
-    lead: 'هر کاری که CLI انجام می‌دهد از @route-intelligence/core در دسترس است. گراف را در اسکریپت بسازید، جستجو کنید، الگوریتم اجرا کنید و خودتان export کنید.',
+    title: 'API تو کد',
+    eyebrow: 'دست به کار',
+    lead: 'هر چی CLI می‌کنه از @route-intelligence/core هم می‌تونی. خودت اسکریپت بنویس، گراف بساز، بکِش بیرون.',
   },
 };
 

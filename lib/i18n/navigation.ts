@@ -50,35 +50,35 @@ const docsNavByLocale: Record<Locale, DocSection[]> = {
   ],
   fa: [
     {
-      title: 'شروع کار',
+      title: 'اول کار',
       links: [
-        { title: 'معرفی', href: '/docs' },
+        { title: 'این چیه اصلاً؟', href: '/docs' },
         { title: 'نصب', href: '/docs/installation' },
-        { title: 'شروع سریع', href: '/docs/quick-start' },
+        { title: 'زود شروع کن', href: '/docs/quick-start' },
       ],
     },
     {
-      title: 'مفاهیم پایه',
+      title: 'مغزش چیه',
       links: [
-        { title: 'گراف مسیر', href: '/docs/concepts' },
-        { title: 'گره‌ها و یال‌ها', href: '/docs/nodes-and-edges' },
-        { title: 'تشخیص‌ها', href: '/docs/diagnostics' },
+        { title: 'گراف روت', href: '/docs/concepts' },
+        { title: 'نود و یال', href: '/docs/nodes-and-edges' },
+        { title: 'ارور و هشدار', href: '/docs/diagnostics' },
       ],
     },
     {
-      title: 'کاربرد',
+      title: 'دست به کار',
       links: [
         { title: 'دستورات CLI', href: '/docs/cli' },
-        { title: 'پیکربندی', href: '/docs/configuration' },
-        { title: 'API برنامه‌نویسی', href: '/docs/api' },
+        { title: 'کانفیگ', href: '/docs/configuration' },
+        { title: 'API تو کد', href: '/docs/api' },
       ],
     },
     {
-      title: 'اکوسیستم',
+      title: 'دور و برش',
       links: [
-        { title: 'افزونه‌های فریم‌ورک', href: '/docs/frameworks' },
-        { title: 'یکپارچه‌سازی‌ها', href: '/docs/integrations' },
-        { title: 'مصورسازی', href: '/docs/visualizing' },
+        { title: 'پلاگین فریم‌ورک', href: '/docs/frameworks' },
+        { title: 'وصل کردن به بقیه', href: '/docs/integrations' },
+        { title: 'دیدن گراف', href: '/docs/visualizing' },
       ],
     },
   ],

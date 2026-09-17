@@ -16,14 +16,14 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
 
   return (
     <div className="flex min-h-screen flex-col">
-      <header className="sticky top-0 z-40 border-b border-line bg-bg/80 backdrop-blur">
+      <header className="glass-nav sticky top-0 z-40 border-b border-line/80">
         <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-4 sm:px-6">
           <Logo href={localizePath('/', locale)} />
           <nav className="flex items-center gap-1 text-sm">
             <LanguageSwitcher locale={locale} />
             <Link
               href={localizePath('/docs', locale)}
-              className="rounded-lg px-3 py-1.5 text-ink-muted transition hover:bg-surface hover:text-ink"
+              className="nav-link rounded-full px-3 py-1.5 text-ink-muted hover:bg-surface hover:text-ink"
             >
               {ui.docs}
             </Link>
@@ -31,7 +31,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
               href={GITHUB_URL}
               target="_blank"
               rel="noreferrer"
-              className="rounded-lg px-3 py-1.5 text-ink-muted transition hover:bg-surface hover:text-ink"
+              className="nav-link rounded-full px-3 py-1.5 text-ink-muted hover:bg-surface hover:text-ink"
             >
               {ui.github}
             </a>
@@ -40,47 +40,56 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
       </header>
 
       <main className="flex-1">
-        <section className="mx-auto max-w-6xl px-4 pb-12 pt-20 text-center sm:px-6 sm:pt-28">
-          <span className="inline-flex items-center gap-2 rounded-full border border-line bg-surface px-3 py-1 text-sm text-ink-muted">
-            <span className="h-1.5 w-1.5 rounded-full bg-brand" />
-            {ui.heroBadge}
-          </span>
-          <h1 className="mx-auto mt-6 max-w-3xl text-5xl font-extrabold tracking-tight text-ink sm:text-6xl">
-            {ui.heroTitle} <span className="text-brand">{ui.heroTitleHighlight}</span>
-            {locale === 'fa' ? ' ببینید.' : '.'}
-          </h1>
-          <p className="mx-auto mt-6 max-w-2xl text-lg leading-8 text-ink-muted sm:text-xl">
-            {ui.heroLead}
-          </p>
-          <div className="mt-9 flex flex-wrap items-center justify-center gap-3">
-            <Link
-              href={localizePath('/docs', locale)}
-              className="rounded-full bg-brand px-6 py-3 font-semibold text-white transition hover:bg-brand-strong"
-            >
-              {ui.readDocs}
-            </Link>
-            <Link
-              href={localizePath('/docs/quick-start', locale)}
-              className="rounded-full border border-line px-6 py-3 font-semibold text-ink transition hover:border-brand hover:text-brand"
-            >
-              {ui.quickStart}
-            </Link>
+        <section className="relative mx-auto max-w-6xl px-4 pb-14 pt-16 sm:px-6 sm:pt-24">
+          <div className="mx-auto max-w-3xl text-center">
+            <p className="text-5xl font-bold tracking-tight text-ink sm:text-6xl">
+              Route<span className="text-brand">Intelligence</span>
+            </p>
+            <span className="mt-6 inline-flex items-center gap-2 rounded-full border border-line bg-surface/80 px-3 py-1 text-sm text-ink-muted shadow-[var(--shadow)]">
+              <span className="h-1.5 w-1.5 rounded-full bg-brand shadow-[0_0_0_4px_var(--brand-soft)]" />
+              {ui.heroBadge}
+            </span>
+            <h1 className="mt-6 text-3xl font-bold tracking-tight text-ink sm:text-4xl">
+              {ui.heroTitle}{' '}
+              <span className="bg-linear-to-r from-brand to-sky-500 bg-clip-text text-transparent">
+                {ui.heroTitleHighlight}
+                {locale === 'fa' ? ' ببین.' : '.'}
+              </span>
+            </h1>
+            <p className="mx-auto mt-5 max-w-2xl text-lg leading-8 text-ink-muted sm:text-xl">
+              {ui.heroLead}
+            </p>
+            <div className="mt-9 flex flex-wrap items-center justify-center gap-3">
+              <Link
+                href={localizePath('/docs', locale)}
+                className="btn-primary rounded-full px-6 py-3 font-semibold shadow-[var(--shadow)]"
+              >
+                {ui.readDocs}
+              </Link>
+              <Link
+                href={localizePath('/docs/quick-start', locale)}
+                className="btn-ghost rounded-full px-6 py-3 font-semibold"
+              >
+                {ui.quickStart}
+              </Link>
+            </div>
           </div>
 
-          <div className="mx-auto mt-12 max-w-xl text-start">
+          <div className="mx-auto mt-12 max-w-xl">
             <CodeBlock
               language="bash"
-              code={`npm install -D @route-intelligence/cli @route-intelligence/next
+              code={`npm install -D @route-intelligence/cli
 npx route-intelligence graph --port 3001`}
             />
           </div>
         </section>
 
-        <section className="mx-auto max-w-6xl px-4 py-16 sm:px-6">
-          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        <section className="mx-auto max-w-6xl px-4 py-10 sm:px-6">
+          <div className="grid gap-6 border-t border-line/80 pt-12 sm:grid-cols-2 lg:grid-cols-3">
             {features.map((feature) => (
-              <div key={feature.title} className="rounded-2xl border border-line bg-surface p-6">
-                <h2 className="font-semibold text-ink">{feature.title}</h2>
+              <div key={feature.title} className="relative pe-2">
+                <div className="mb-3 h-0.5 w-10 bg-brand" />
+                <h2 className="text-base font-semibold text-ink">{feature.title}</h2>
                 <p className="mt-2 text-sm leading-6 text-ink-muted">{feature.body}</p>
               </div>
             ))}
@@ -88,15 +97,19 @@ npx route-intelligence graph --port 3001`}
         </section>
 
         <section className="mx-auto max-w-6xl px-4 pb-24 sm:px-6">
-          <div className="flex flex-col items-center gap-4 rounded-3xl border border-line bg-surface px-6 py-14 text-center">
-            <h2 className="max-w-xl text-3xl font-bold tracking-tight text-ink">{ui.readyTitle}</h2>
-            <p className="max-w-lg text-ink-muted">{ui.readyBody}</p>
-            <Link
-              href={localizePath('/docs/installation', locale)}
-              className="mt-2 rounded-full bg-brand px-6 py-3 font-semibold text-white transition hover:bg-brand-strong"
-            >
-              {ui.getStarted}
-            </Link>
+          <div className="doc-hero px-6 py-14 text-center sm:px-10">
+            <div className="relative z-10">
+              <h2 className="mx-auto max-w-xl text-3xl font-bold tracking-tight text-ink">
+                {ui.readyTitle}
+              </h2>
+              <p className="mx-auto mt-3 max-w-lg text-ink-muted">{ui.readyBody}</p>
+              <Link
+                href={localizePath('/docs/installation', locale)}
+                className="btn-primary mt-6 inline-flex rounded-full px-6 py-3 font-semibold"
+              >
+                {ui.getStarted}
+              </Link>
+            </div>
           </div>
         </section>
       </main>

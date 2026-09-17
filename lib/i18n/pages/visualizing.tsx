@@ -12,9 +12,9 @@ const meta: PageMetaByLocale = {
     lead: 'A routing graph is far easier to understand when you can see it. Route Intelligence exports to every popular diagram format and ships an interactive browser visualizer.',
   },
   fa: {
-    title: 'مصورسازی',
-    eyebrow: 'اکوسیستم',
-    lead: 'وقتی گراف مسیریابی را ببینید، فهم آن بسیار آسان‌تر است. Route Intelligence به همهٔ فرمت‌های رایج نمودار export می‌کند و یک visualizer تعاملی مرورگر هم دارد.',
+    title: 'دیدن گراف',
+    eyebrow: 'دور و برش',
+    lead: 'گراف رو ببینی راحت‌تره. Mermaid، PlantUML، DOT، HTML، یا دستور graph تو مرورگر.',
   },
 };
 
