@@ -2,21 +2,31 @@
 
 > The React DevTools for Routing — statically analyze React/Next.js applications and build a complete graph of your routing architecture.
 
+## Use this (most people)
+
+```bash
+npm install -D @route-intelligence/cli
+npx route-intelligence analyze
+npx route-intelligence graph
+```
+
+One package. `analyze` writes `ri-output/graph.json`. `graph` opens `http://localhost:3001`. The CLI already pulls in core + the Next.js plugin.
+
 ## Packages
 
-| Package | Description |
-|---------|-------------|
-| `@route-intelligence/shared` | Shared types and interfaces |
-| `@route-intelligence/core` | Graph engine, pipeline, algorithms |
-| `@route-intelligence/next` | Next.js App Router + Pages Router plugin |
-| `@route-intelligence/react-router` | React Router v6/v7 plugin |
-| `@route-intelligence/tanstack` | TanStack Router plugin |
-| `@route-intelligence/cli` | Command-line interface |
-| `@route-intelligence/visualizer` | React Flow interactive graph UI |
-| `route-intelligence-vscode` | VS Code extension |
-| `eslint-plugin-route-intelligence` | ESLint rules |
-| `@route-intelligence/github-action` | GitHub Action for PR analysis |
-| `@route-intelligence/playwright` | Playwright test generation |
+| Package | Who installs it | README |
+|---------|-----------------|--------|
+| [`@route-intelligence/cli`](packages/cli/README.md) | **End users** (Next.js) | CLI: analyze, graph, doctor, export, watch |
+| [`@route-intelligence/core`](packages/core/README.md) | Custom Node integrations | Engine, pipeline, exporters |
+| [`@route-intelligence/shared`](packages/shared/README.md) | Plugin authors | Types (`SerializedGraph`, `FrameworkPlugin`) |
+| [`@route-intelligence/next`](packages/next/README.md) | Bundled with CLI | App Router + Pages Router |
+| [`@route-intelligence/react-router`](packages/react-router/README.md) | Programmatic only | React Router plugin (not in CLI yet) |
+| [`@route-intelligence/tanstack`](packages/tanstack/README.md) | Programmatic only | TanStack Router plugin (not in CLI yet) |
+| [`@route-intelligence/visualizer`](packages/visualizer/README.md) | Embed graph in a React app | React Flow component |
+| [`route-intelligence-vscode`](packages/vscode/README.md) | VS Code Marketplace | Explorer tree, hover, diagnostics |
+| [`eslint-plugin-route-intelligence`](packages/eslint-plugin/README.md) | Lint after `analyze` | Broken links / dead pages |
+| [`@route-intelligence/github-action`](packages/github-action/README.md) | CI | PR route report |
+| [`@route-intelligence/playwright`](packages/playwright/README.md) | Optional e2e | Generate Playwright specs from the graph |
 
 ## Requirements
 
