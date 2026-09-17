@@ -1,5 +1,16 @@
 # eslint-plugin-route-intelligence
 
+## 2.2.0
+
+### Minor Changes
+
+- 660aaba: added readme for packages
+
+### Patch Changes
+
+- Updated dependencies [660aaba]
+  - @route-intelligence/shared@2.2.0
+
 ## 2.1.0
 
 ### Minor Changes

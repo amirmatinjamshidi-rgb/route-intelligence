@@ -1,6 +1,6 @@
 {
   "name": "@route-intelligence/cli",
-  "version": "2.1.0",
+  "version": "2.2.0",
   "description": "CLI for Route Intelligence",
   "type": "module",
   "bin": {
@@ -14,7 +14,11 @@
       "import": "./dist/cli.js"
     }
   },
-  "files": ["dist", "bin", "README.md"],
+  "files": [
+    "dist",
+    "bin",
+    "README.md"
+  ],
   "scripts": {
     "build": "tsup src/cli.ts --format esm --dts --clean",
     "dev": "tsup src/cli.ts --format esm --dts --watch",
