@@ -14,11 +14,7 @@
       "import": "./dist/cli.js"
     }
   },
-  "files": [
-    "dist",
-    "bin",
-    "README.md"
-  ],
+  "files": ["dist", "bin", "README.md"],
   "scripts": {
     "build": "tsup src/cli.ts --format esm --dts --clean",
     "dev": "tsup src/cli.ts --format esm --dts --watch",
