@@ -79,7 +79,12 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
             <CodeBlock
               language="bash"
               code={`npm install -D @route-intelligence/cli
-npx route-intelligence graph --port 3001`}
+npx route-intelligence graph --port 3001
+# Generate analysis reports in different formats
+npx route-intelligence analyze --format html --out ri-output
+npx route-intelligence analyze --format mermaid --out ri-output
+npx route-intelligence analyze --format plantuml --out ri-output
+`}
             />
           </div>
         </section>
