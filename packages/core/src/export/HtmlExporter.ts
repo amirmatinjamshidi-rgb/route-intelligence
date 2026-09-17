@@ -13,7 +13,11 @@ export function exportHtml(graph: RouteGraph, root: string): string {
   <title>Route Intelligence Report</title>
   <script type="module">
     import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
-    mermaid.initialize({ startOnLoad: true, theme: 'dark' });
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: 'dark',
+      flowchart: { htmlLabels: true, padding: 12, nodeSpacing: 40, rankSpacing: 55 },
+    });
   </script>
   <style>
     body { font-family: system-ui, sans-serif; margin: 0; padding: 2rem; background: #0a0a0a; color: #fafafa; }
